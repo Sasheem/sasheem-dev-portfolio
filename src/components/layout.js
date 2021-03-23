@@ -5,51 +5,42 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import styled from 'styled-components';
 
-import Header from "./header"
-import "./layout.css"
+// local components
+import { GlobalStyle } from '../theme/globalStyles';
+import Navbar from './navbar';
 
+// styled components
+const Main = styled.main`
+	padding-left: 32px;
+	padding-right: 32px;
+
+	@media only screen and (min-width: 768px) {
+		padding-left: 96px;
+		padding-right: 96px;
+	}
+`;
+const Footer = styled.footer`
+	margin-top: 40vh;
+	padding-bottom: 10vh;
+	display: flex;
+	justify-content: center;
+`;
+
+// markup
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+	return (
+		<>
+			<GlobalStyle />
+			<Navbar />
+			<Main>{children}</Main>
+			<Footer>
+				© {new Date().getFullYear()}, Developed by SasheemDev
+			</Footer>
+		</>
+	);
+};
 
 export default Layout
