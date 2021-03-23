@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="463px" height="201px" viewBox="0 0 463 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>logo-dark-gradient-md</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="49.8335254%" y1="0%" x2="50.1559132%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#023169" offset="0%"></stop>
+            <stop stop-color="#011638" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="36.899611%" y1="0%" x2="62.2692772%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#023169" offset="0%"></stop>
+            <stop stop-color="#011638" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="49.8284468%" y1="0%" x2="50.1606687%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#023169" offset="0%"></stop>
+            <stop stop-color="#011638" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="36.5480422%" y1="0%" x2="62.5984711%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#023169" offset="0%"></stop>
+            <stop stop-color="#011638" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="logo-dark-gradient-md" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pedal-copy-20" transform="translate(-4.000000, -1.000000)">
+            <g id="Group" transform="translate(0.000000, 1.501247)">
+                <polygon id="Rectangle-Copy" fill="url(#linearGradient-1)" transform="translate(229.700054, 145.650326) rotate(-315.000000) translate(-229.700054, -145.650326) " points="222.385054 75.3979374 236.822727 75.4033182 237.015054 215.902715 222.577381 215.897335"></polygon>
+                <path d="M104.25259,0 L185.196599,0 L85.0903294,100.249377 L185.196599,200.498753 L104.25259,200.498753 C101.59795,200.498753 99.0522464,199.443223 97.1764736,197.564769 L7.05592862,107.315392 C3.15741744,103.411308 3.15741744,97.0874454 7.05592862,93.1833612 L97.1764736,2.93398459 C99.0522464,1.05553033 101.59795,1.76377354e-14 104.25259,0 Z" id="Rectangle" fill="url(#linearGradient-2)"></path>
+            </g>
+            <g id="Group-Copy-2" transform="translate(328.074450, 101.451153) rotate(-180.000000) translate(-328.074450, -101.451153) translate(185.574450, 0.951153)">
+                <polygon id="Rectangle-Copy" fill="url(#linearGradient-3)" transform="translate(229.611508, 145.738872) rotate(-315.000000) translate(-229.611508, -145.738872) " points="222.296508 75.6117054 236.734513 75.617086 236.926508 215.866039 222.488503 215.860658"></polygon>
+                <path d="M104.25259,1.98951966e-13 L185.196599,1.98951966e-13 L85.0903294,100.249377 L185.196599,200.498753 L104.25259,200.498753 C101.59795,200.498753 99.0522464,199.443223 97.1764736,197.564769 L7.05592862,107.315392 C3.15741744,103.411308 3.15741744,97.0874454 7.05592862,93.1833612 L97.1764736,2.93398459 C99.0522464,1.05553033 101.59795,2.04155204e-13 104.25259,1.98951966e-13 Z" id="Rectangle" fill="url(#linearGradient-4)"></path>
+            </g>
+        </g>
+    </g>
+</svg>
