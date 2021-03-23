@@ -40,6 +40,12 @@ module.exports = {
       },
     },
     {
+			resolve: `gatsby-plugin-s3`,
+			options: {
+				bucketName: 'sasheem-dev-portfolio',
+			},
+		},
+    {
       resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
