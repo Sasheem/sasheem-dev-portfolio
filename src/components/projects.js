@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 // styled components
@@ -30,7 +30,7 @@ const Li = styled.li`
       max-width: 25vw;
     }
 `;
-const ProjectLink = styled.a`
+const ProjectLink = styled(Link)`
   min-width: 10em;
   height: 250px;
   border-radius: 0.5rem;
@@ -96,28 +96,28 @@ const Projects = ({ links }) => {
         <Ul>
             {links.map((link) => (
 					<Li key={link.url}>
-                        <ProjectLink href={link.url} target='_blank' rel="noreferrer">
-                            <GatsbyImage
-                                image={link.image === 'one' 
-                                    ? projectDataOne : link.image === 'two' 
-                                    ? projectDataTwo : link.image === 'three' 
-                                    ? projectDataThree : projectBlank
-                                }
-                                width={300}
-                                height={150}
-                                quality={95}
-                                placeholder="blurred"
-                                formats={["AUTO", "WEBP", "AVIF"]}
-                                alt={link.alt}
-                                style={{ borerRadius: `5px` }}
-                            />
-                            <ProjectTitle>
-                                {link.text}
-                            </ProjectTitle>
-                            <ProjectDescr>
-                                {link.description}
-                            </ProjectDescr>
-                        </ProjectLink>	
+              <ProjectLink to={link.slug}>
+                <GatsbyImage
+                    image={link.image === 'one' 
+                        ? projectDataOne : link.image === 'two' 
+                        ? projectDataTwo : link.image === 'three' 
+                        ? projectDataThree : projectBlank
+                    }
+                    width={300}
+                    height={150}
+                    quality={95}
+                    placeholder="blurred"
+                    formats={["AUTO", "WEBP", "AVIF"]}
+                    alt={link.alt}
+                    style={{ borerRadius: `5px` }}
+                />
+                <ProjectTitle>
+                    {link.text}
+                </ProjectTitle>
+                <ProjectDescr>
+                    {link.description}
+                </ProjectDescr>
+            </ProjectLink>	
 					</Li>
 				))}
         </Ul>

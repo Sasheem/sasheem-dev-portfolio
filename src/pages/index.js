@@ -41,7 +41,8 @@ const links = [
 		color: '#E95800',
     image: `one`,
     path: `../images/portfolio-web.png`,
-    alt: `Sasheem portfolio website`
+    alt: `Sasheem portfolio website`,
+	slug: `/my-portfolio-post`
 	},
 	{
 		text: 'Unhoused Humanity',
@@ -51,7 +52,8 @@ const links = [
 		color: '#1099A8',
     image: `two`,
     path: `../images/unhoused-humanity-web.png`,
-    alt: `Unhoused humanity website`
+    alt: `Unhoused humanity website`,
+	slug: `/unhoused-humanity-project`
 	},
 	{
 		text: 'Cha Ching',
@@ -61,7 +63,8 @@ const links = [
 		color: '#BC027F',
     image: `three`,
     path: `../images/cha-ching-mobile.png`,
-    alt: `Tip tracker mobile app`
+    alt: `Tip tracker mobile app`,
+	slug: `/tip-tracker-mobile-app`
 	},
 ];
 
