@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 
 // styled components
 const Form = styled.form`
+    width: 80%
     max-width: 75vw;
     
     @media only screen and (min-width: 768px) {
