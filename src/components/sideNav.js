@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { navigate } from 'gatsby';
 
 // styled components
 const Ul = styled.ul`
@@ -49,9 +50,19 @@ const NavText = styled.p`
 	font-weight: 700;
 `;
 
+// hide the first ul item when screen screen with is larger than 768px
+const HomeText = styled(NavText)`
+	@media only screen and (min-width: 768px) {
+		display: none;
+	}
+`;
+
 // markup
 const SideNav = ({ open, setOpen }) => {
-
+	const handleHomeClick = () => {
+		setOpen(!open);
+		navigate('/');
+	};
 	const handleProjectScroll = () => {
 		setOpen(!open);
 		scrollTo('#projects-section');
@@ -63,7 +74,9 @@ const SideNav = ({ open, setOpen }) => {
 	return (
 		<Ul open={open}>
 			<li>
-				
+				<HomeText onClick={() => handleHomeClick()}>Home</HomeText>
+			</li>
+			<li>
 				<NavText onClick={() => handleProjectScroll()}>Portfolio</NavText>
 			</li>
 			<li>

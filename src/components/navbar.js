@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { navigate } from 'gatsby';
 
 // local components
 import Logo from '../assets/logo-dark-gradient-md.svg';
@@ -34,7 +35,7 @@ const Navbar = () => {
 	return (
 		<Header>
 			<Nav>
-				<LogoNav>
+				<LogoNav onClick={() => navigate('/')}>
 					<Logo />
 				</LogoNav>
 				<Hamburger />
