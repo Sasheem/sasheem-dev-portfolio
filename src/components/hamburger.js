@@ -10,7 +10,7 @@ const BurgerIcon = styled.div`
 	position: fixed;
 	top: 24px;
 	right: 24px;
-	z-index: 20;
+	z-index: 2;
 	display: none;
 
 	@media only screen and (max-width: 768px) {
