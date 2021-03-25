@@ -8,7 +8,11 @@ import Layout from '../components/layout';
 
 // import '../css/blog-post.css'; // make it pretty!
 const Post = styled.div`
-  max-width: 50vw;
+  max-width: 90%;
+
+  @media only screen and (min-width: 768px) {
+		max-width: 50vw;
+	}
 `;
 const Content = styled.div``;
 const Title = styled.h1`
