@@ -7,11 +7,13 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 
 // import '../css/blog-post.css'; // make it pretty!
-const Container = styled.div`
-    background-color: pink;
+const Post = styled.div`
+  max-width: 50vw;
 `;
-const Post = styled.div``;
 const Content = styled.div``;
+const Title = styled.h1`
+  margin-top: 5em;
+`;
 
 export default function Template({
   data // this prop will be injected by the GraphQL query we'll write in a bit
@@ -21,7 +23,7 @@ export default function Template({
     <Layout>
       <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />
       <Post>
-        <h1>{post.frontmatter.title}</h1>
+        <Title>{post.frontmatter.title}</Title>
         <Content
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
