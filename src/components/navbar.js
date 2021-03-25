@@ -22,6 +22,10 @@ const LogoNav = styled.div`
 	align-items: center;
 	width: 6em;
 	height: 3em;
+
+	&:hover {
+		cursor: pointer;
+	}
 `;
 const Nav = styled.nav`
 	width: 100%;
