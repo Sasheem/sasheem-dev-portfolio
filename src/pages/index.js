@@ -33,7 +33,7 @@ const docLink = {
 };
 const links = [
 	{
-		text: 'Sasheem Dev Portfolio',
+		text: 'Portfolio Static Website',
 		url: 'https://github.com/Sasheem/sasheem-dev-portfolio',
 		description: 'Static website built using GatsbyJS and hosting on Amazon S3',
 		color: '#E95800',
@@ -43,7 +43,7 @@ const links = [
 	slug: `/my-portfolio-post`
 	},
 	{
-		text: 'Unhoused Humanity',
+		text: 'Donation Web App',
 		url: 'https://github.com/Sasheem/gatsby-unhoused-website',
 		description:
 			'This website tells the stories of those experiencing homelesssness and crowdfunds for individuals and families in need of a helping hand.',
@@ -54,7 +54,7 @@ const links = [
 	slug: `/unhoused-humanity-project`
 	},
 	{
-		text: 'Cha Ching',
+		text: 'Tip Tracker Mobile App',
 		url: 'https://github.com/Sasheem/tip-tracker-aws',
 		description:
 			'Tip tracking mobile app for users working in hospitality allowing them to track tips and wages earned.',
