@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import scrollTo from 'gatsby-plugin-smoothscroll';
 import { navigate } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 // styled components
 const Ul = styled.ul`
@@ -39,19 +39,22 @@ const Ul = styled.ul`
 		padding-top: 3.5rem;
 		transition: transform 0.3s ease-in-out;
 
-		p {
+		p,a {
 			color: #a0aec0;
 		}
 	}
 `;
-const NavText = styled.p`
+const NavText = styled(AnchorLink)`
 	margin: 0;
 	font-size: 1.15rem;
 	font-weight: 700;
 `;
 
 // hide the first ul item when screen screen with is larger than 768px
-const HomeText = styled(NavText)`
+const HomeText = styled.p`
+	margin: 0;
+	font-size: 1.15rem;
+	font-weight: 700;
 	@media only screen and (min-width: 768px) {
 		display: none;
 	}
@@ -63,24 +66,21 @@ const SideNav = ({ open, setOpen }) => {
 		setOpen(!open);
 		navigate('/');
 	};
-	const handleProjectScroll = () => {
-		setOpen(!open);
-		scrollTo('#projects-section');
-	}
-	const handleContactScroll = () => {
-		setOpen(!open);
-		scrollTo('#contact-form');
-	}
+	const handleNavClose = () => {
+		if (open === true) {
+			setOpen(false);
+		}
+	};
 	return (
 		<Ul open={open}>
 			<li>
 				<HomeText onClick={() => handleHomeClick()}>Home</HomeText>
 			</li>
 			<li>
-				<NavText onClick={() => handleProjectScroll()}>Portfolio</NavText>
+				<NavText to='/#projects-section' onAnchorLinkClick={() => handleNavClose()}>Portfolio</NavText>
 			</li>
 			<li>
-				<NavText onClick={() => handleContactScroll()}>Contact</NavText>
+				<NavText to='/#contact-form' onAnchorLinkClick={() => handleNavClose()}>Contact</NavText>
 			</li>
 		</Ul>
 	);
