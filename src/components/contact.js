@@ -27,6 +27,7 @@ const Input = styled.input`
     display: block;
     padding: 0.5rem;
     line-height: 1.25;
+    font-size: 0.9em;
     border-width: 1px;
     border-radius: 0.25rem;
     border-color: #4a5568;
@@ -38,6 +39,7 @@ const Select = styled.select`
     padding: 0.5rem;
     border-radius: 0.25rem;
     border-color: #4a5568;
+    font-size: 0.9em;
 
     margin: 0;      
     -webkit-box-sizing: border-box;
@@ -53,7 +55,7 @@ const Select = styled.select`
     background-position:
         calc(100% - 20px) calc(1em + 2px),
         calc(100% - 15px) calc(1em + 2px),
-        calc(100% - 2.5em) 0.5em;
+        calc(100% - 3.5em) 0.5em;
     background-size:
         5px 5px,
         5px 5px,
@@ -87,10 +89,18 @@ const Textarea = styled.textarea`
     display: block;
     padding: 0.5rem;
     border-color: #4a5568;
+    font-size: 0.9em;
 `;
 const Button = styled.button`
-    diplay: block;
-    padding: 0.5rem;
+    diplay: inline-block;
+    background-color: #3e4cae;
+    color: white;
+    border-radius: 0.3em;
+    padding: 1em 0.5em;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
 `;
 const ErrorText = styled.p`
     color: red;
