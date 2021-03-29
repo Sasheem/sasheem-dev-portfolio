@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-// import ReCAPTCHA from 'react-google-recaptcha';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
 // styled components
@@ -129,35 +129,43 @@ const Contact = () => {
         setError, 
         formState: { isSubmitting},
     } = useForm();
-    const GATEWAY_URL = 'https://dff7228u2k.execute-api.us-east-1.amazonaws.com/prod';
+    const GATEWAY_URL = process.env.AWS_GATEWAY_URL;
 
     // handle submit event
     // error check & submit form w/ lambda function
     const onSubmit = async data => {
-        try {
-          await fetch(GATEWAY_URL, {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            body: JSON.stringify(data),
-            headers: {
-              'Content-type': 'application/json; charset=UTF-8',
-            },
-          });
-          // reset form data upon successful submit
-          reset();
-          setSubmitted(true);
-          setFormValues({
-              name: '',
-              email: '',
-              topic: '',
-              subject: '',
-              message: '',
-          })
-        } catch (error) {
-          // handle server errors
-          setError('submit', 'submitError', `Doh! ${error.message}`);
+        const token = await recaptchaRef.current.getValue();
+
+        // check if recaptcha passes
+        if (token.length !== 0) {
+            try {
+                await fetch(GATEWAY_URL, {
+                  method: 'POST',
+                  mode: 'cors',
+                  cache: 'no-cache',
+                  body: JSON.stringify(data),
+                  headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                  },
+                });
+                // reset form data upon successful submit
+                reset();
+                setSubmitted(true);
+                setFormValues({
+                    name: '',
+                    email: '',
+                    topic: '',
+                    subject: '',
+                    message: '',
+                })
+              } catch (error) {
+                // handle server errors
+                setError('submit', 'submitError', `Doh! ${error.message}`);
+              }
+        } else {
+            setError('submit', 'submitError', `Recaptcha Failed`);
         }
+        
       };
 
     // update input on change
@@ -176,7 +184,7 @@ const Contact = () => {
 
     // Component: Thank you message
     const showThankYou = (
-        <SuccessText>Thank you I will get back to you in 1-2 days <br />
+        <SuccessText>Thank you I will get back to you shortly <br /> <br />
             <Button onClick={() => setSubmitted(false)}>Send another message</Button>
         </SuccessText>
     );
@@ -186,7 +194,7 @@ const Contact = () => {
     <Form id="contact-form" onSubmit={handleSubmit(onSubmit)} method="post">
         <Row>
             <Heading>Send me a message</Heading>
-            <p>Tell me about your project aspirations or we can meet over coffee <span role='img' aria-label='Coffee emoji'>
+            <p>Tell me about your project aspirations or let's meet over coffee <span role='img' aria-label='Coffee emoji'>
             ☕️
             </span>
             </p>
@@ -271,14 +279,14 @@ const Contact = () => {
                 {errors.submit.message}
             </Row>
         }
-        {/* <Row>
+        <Row>
             <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={process.env.GATSBY_SITE_KEY}
                 onChange={handleRecaptcha}
                 size="normal"
             />
-        </Row> */}
+        </Row>
     </Form>;
  
     return (
