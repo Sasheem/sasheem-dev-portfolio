@@ -99,7 +99,6 @@ const Button = styled.button`
     padding: 1em 0.5em;
     border: none;
     margin-bottom: 1em;
-    z-index: 1;
     -webkit-appearance: none;
     -moz-appearance: none;
 
