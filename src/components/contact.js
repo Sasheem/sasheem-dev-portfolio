@@ -98,9 +98,14 @@ const Button = styled.button`
     border-radius: 0.3em;
     padding: 1em 0.5em;
     border: none;
+    margin-bottom: 1em;
+    z-index: 1;
     -webkit-appearance: none;
     -moz-appearance: none;
 
+    &:hover {
+        cursor: pointer;
+    }
 `;
 const ErrorText = styled.p`
     color: red;
@@ -134,37 +139,32 @@ const Contact = () => {
     // handle submit event
     // error check & submit form w/ lambda function
     const onSubmit = async data => {
-        const token = await recaptchaRef.current.getValue();
-
-        // check if recaptcha passes
-        if (token.length !== 0) {
-            try {
-                await fetch(GATEWAY_URL, {
-                  method: 'POST',
-                  mode: 'cors',
-                  cache: 'no-cache',
-                  body: JSON.stringify(data),
-                  headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                  },
-                });
-                // reset form data upon successful submit
-                reset();
-                setSubmitted(true);
-                setFormValues({
-                    name: '',
-                    email: '',
-                    topic: '',
-                    subject: '',
-                    message: '',
-                })
-              } catch (error) {
-                // handle server errors
-                setError('submit', 'submitError', `Doh! ${error.message}`);
-              }
-        } else {
-            setError('submit', 'submitError', `Recaptcha Failed`);
-        }
+        // const token = await recaptchaRef.current.getValue();
+        try {
+            const token = await recaptchaRef.current.executeAsync();
+            await fetch(GATEWAY_URL, {
+              method: 'POST',
+              mode: 'cors',
+              cache: 'no-cache',
+              body: JSON.stringify(data),
+              headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              },
+            });
+            // reset form data upon successful submit
+            reset();
+            setSubmitted(true);
+            setFormValues({
+                name: '',
+                email: '',
+                topic: '',
+                subject: '',
+                message: '',
+            })
+          } catch (error) {
+            // handle server errors
+            setError('submit', 'submitError', `Doh! ${error.message}`);
+          }
         
       };
 
@@ -284,7 +284,7 @@ const Contact = () => {
                 ref={recaptchaRef}
                 sitekey={process.env.GATSBY_SITE_KEY}
                 onChange={handleRecaptcha}
-                size="normal"
+                size="invisible"
             />
         </Row>
     </Form>;
