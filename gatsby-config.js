@@ -1,8 +1,13 @@
+require('dotenv').config({
+  // path: '.env',
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
     title: `Sasheem Dev Portfolio`,
-    description: `Portfolio website for showing websites and mobile apps developed by Sasheem.`,
-    author: `@sasheem`,
+    description: `Freelance web developer portfolio website for showing websites and mobile apps developed by Sasheem.`,
+    author: `Sasheem Snell`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
