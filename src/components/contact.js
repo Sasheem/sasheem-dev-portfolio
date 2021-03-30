@@ -140,7 +140,8 @@ const Contact = () => {
     const onSubmit = async data => {
         
         // perform recaptcha check
-        const token = await recaptchaRef.current.executeAsync();
+        // const token = await recaptchaRef.current.executeAsync();
+        // const recaptchaValue = recaptchaRef.current.getValue();
         // try {
             
         //     console.log(`token: ${typeof token}:${token}`);
@@ -149,34 +150,31 @@ const Contact = () => {
         // }
 
         // perform fetch request to gateway api to invoke lambda function with form data
-        // if recaptcha passes
-        if (token !== null) {
-            try {
-                await fetch(GATEWAY_URL, {
-                  method: 'POST',
-                  mode: 'cors',
-                  cache: 'no-cache',
-                  body: JSON.stringify(data),
-                  headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                  },
-                });
-                // reset form data upon successful submit
-                reset();
-                setSubmitted(true);
-                setFormValues({
-                    name: '',
-                    email: '',
-                    topic: '',
-                    subject: '',
-                    message: '',
-                })
-              } catch (error) {
-                // handle server errors
-                setSubmitted(false);
-                setError('submit', 'submitError', `Doh! ${error.message}`);
-              }
-        }
+        try {
+            await fetch(GATEWAY_URL, {
+              method: 'POST',
+              mode: 'cors',
+              cache: 'no-cache',
+              body: JSON.stringify(data),
+              headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              },
+            });
+            // reset form data upon successful submit
+            reset();
+            setSubmitted(true);
+            setFormValues({
+                name: '',
+                email: '',
+                topic: '',
+                subject: '',
+                message: '',
+            })
+          } catch (error) {
+            // handle server errors
+            setSubmitted(false);
+            setError('submit', 'submitError', `Doh! ${error.message}`);
+          }
         
       };
 
@@ -190,9 +188,9 @@ const Contact = () => {
     };
 
     // handle recaptcha change
-    // const handleRecaptcha = (value) => {
-    //     console.log(`Captcha value: ${value}`);
-    // };
+    const onRecaptchaChange = (value) => {
+        console.log(`Captcha value: ${value}`);
+    };
 
     // Component: Thank you message
     const showThankYou = (
@@ -291,13 +289,14 @@ const Contact = () => {
                 {errors.submit.message}
             </Row>
         }
-        <Row>
+        {/* <Row>
             <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={process.env.GATSBY_SITE_KEY}
                 size="invisible"
+                // onChange={onRecaptchaChange}
             />
-        </Row>
+        </Row> */}
     </Form>;
  
     return (
