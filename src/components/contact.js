@@ -185,9 +185,9 @@ const Contact = () => {
     };
 
     // handle recaptcha change
-    const handleRecaptcha = (value) => {
-        console.log(`Captcha value: ${value}`);
-    };
+    // const handleRecaptcha = (value) => {
+    //     console.log(`Captcha value: ${value}`);
+    // };
 
     // Component: Thank you message
     const showThankYou = (
@@ -290,7 +290,6 @@ const Contact = () => {
             <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={process.env.GATSBY_SITE_KEY}
-                onChange={handleRecaptcha}
                 size="invisible"
             />
         </Row>
