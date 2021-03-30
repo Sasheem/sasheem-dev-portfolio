@@ -138,9 +138,16 @@ const Contact = () => {
     // handle submit event
     // error check & submit form w/ lambda function
     const onSubmit = async data => {
-        // const token = await recaptchaRef.current.getValue();
+        
+        // perform recaptcha check
         try {
-            const token = await recaptchaRef.current.executeAsync();
+            await recaptchaRef.current.executeAsync();
+        } catch (error) {
+            setError('submit', 'submitError', `ReCAPTCHA failed`);
+        }
+
+        // perform fetch request to gateway api to invoke lambda function with form data
+        try {
             await fetch(GATEWAY_URL, {
               method: 'POST',
               mode: 'cors',
