@@ -159,17 +159,24 @@ const Contact = () => {
               headers: {
                 'Content-type': 'application/json; charset=UTF-8',
               },
+            }).then(function(response) {
+                if (response.status >= 400) {
+                    throw new Error("Bad response from server");
+                }
+
+                // reset form data upon successful submit
+                reset();
+                setSubmitted(true);
+                setFormValues({
+                    name: '',
+                    email: '',
+                    topic: '',
+                    subject: '',
+                    message: '',
+                })
+                return response.json();
             });
-            // reset form data upon successful submit
-            reset();
-            setSubmitted(true);
-            setFormValues({
-                name: '',
-                email: '',
-                topic: '',
-                subject: '',
-                message: '',
-            })
+            
           } catch (error) {
             // handle server errors
             setSubmitted(false);
