@@ -140,38 +140,43 @@ const Contact = () => {
     const onSubmit = async data => {
         
         // perform recaptcha check
-        try {
-            const token = await recaptchaRef.current.executeAsync();
-            console.log(`token: ${typeof token}:${token}`);
-        } catch (error) {
-            setError('submit', 'submitError', `ReCAPTCHA failed`);
-        }
+        const token = await recaptchaRef.current.executeAsync();
+        // try {
+            
+        //     console.log(`token: ${typeof token}:${token}`);
+        // } catch (error) {
+        //     setError('submit', 'submitError', `ReCAPTCHA failed`);
+        // }
 
         // perform fetch request to gateway api to invoke lambda function with form data
-        try {
-            await fetch(GATEWAY_URL, {
-              method: 'POST',
-              mode: 'cors',
-              cache: 'no-cache',
-              body: JSON.stringify(data),
-              headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-              },
-            });
-            // reset form data upon successful submit
-            reset();
-            setSubmitted(true);
-            setFormValues({
-                name: '',
-                email: '',
-                topic: '',
-                subject: '',
-                message: '',
-            })
-          } catch (error) {
-            // handle server errors
-            setError('submit', 'submitError', `Doh! ${error.message}`);
-          }
+        // if recaptcha passes
+        if (token !== null) {
+            try {
+                await fetch(GATEWAY_URL, {
+                  method: 'POST',
+                  mode: 'cors',
+                  cache: 'no-cache',
+                  body: JSON.stringify(data),
+                  headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                  },
+                });
+                // reset form data upon successful submit
+                reset();
+                setSubmitted(true);
+                setFormValues({
+                    name: '',
+                    email: '',
+                    topic: '',
+                    subject: '',
+                    message: '',
+                })
+              } catch (error) {
+                // handle server errors
+                setSubmitted(false);
+                setError('submit', 'submitError', `Doh! ${error.message}`);
+              }
+        }
         
       };
 
