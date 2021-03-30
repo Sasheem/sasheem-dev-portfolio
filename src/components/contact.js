@@ -155,25 +155,25 @@ const Contact = () => {
                     cache: 'no-cache',
                     body: JSON.stringify(data),
                     headers: {
-                      'Content-type': 'application/json; charset=UTF-8',
+                    'Content-type': 'application/json; charset=UTF-8',
                     },
-                  });
+                });
+
+                // reset form data upon successful submit
+                reset();
+                setSubmitted(true);
+                setFormValues({
+                    name: '',
+                    email: '',
+                    topic: '',
+                    subject: '',
+                    message: '',
+                })
             } else {
                 setSubmitted(false);
                 setError('submit', 'submitError', 'Please toggle recaptcha')
             }
             
-
-             // reset form data upon successful submit
-             reset();
-             setSubmitted(true);
-             setFormValues({
-                 name: '',
-                 email: '',
-                 topic: '',
-                 subject: '',
-                 message: '',
-             })
             
           } catch (error) {
             // handle server errors
