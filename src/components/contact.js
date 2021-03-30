@@ -133,7 +133,7 @@ const Contact = () => {
         setError, 
         formState: { isSubmitting},
     } = useForm();
-    const GATEWAY_URL = process.env.AWS_GATEWAY_URL;
+    const GATEWAY_URL = 'https://dff7228u2k.execute-api.us-east-1.amazonaws.com/prod';
 
     // handle submit event
     // error check & submit form w/ lambda function
@@ -142,12 +142,6 @@ const Contact = () => {
         // perform recaptcha check
         // const token = await recaptchaRef.current.executeAsync();
         const recaptchaValue = recaptchaRef.current.getValue(); 
-        // try {
-            
-        //     console.log(`token: ${typeof token}:${token}`);
-        // } catch (error) {
-        //     setError('submit', 'submitError', `ReCAPTCHA failed`);
-        // }
 
         // perform fetch request to gateway api to invoke lambda function with form data
         try {
@@ -206,7 +200,7 @@ const Contact = () => {
 
     // Component: Form
     const showForm = 
-    <Form id="contact-form" onSubmit={handleSubmit(onSubmit)} action="https://sasheem.dev" method="post">
+    <Form onSubmit={handleSubmit(onSubmit)} method="post">
         <Row>
             <Heading>Send me a message</Heading>
             <p>Tell me about your project aspirations or let's meet over coffee <span role='img' aria-label='Coffee emoji'>
