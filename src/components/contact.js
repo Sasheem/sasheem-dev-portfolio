@@ -141,7 +141,7 @@ const Contact = () => {
         
         // perform recaptcha check
         // const token = await recaptchaRef.current.executeAsync();
-        // const recaptchaValue = recaptchaRef.current.getValue();
+        // const recaptchaValue = recaptchaRef.current.getValue(); 
         // try {
             
         //     console.log(`token: ${typeof token}:${token}`);
@@ -159,23 +159,18 @@ const Contact = () => {
               headers: {
                 'Content-type': 'application/json; charset=UTF-8',
               },
-            }).then(function(response) {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server");
-                }
-
-                // reset form data upon successful submit
-                reset();
-                setSubmitted(true);
-                setFormValues({
-                    name: '',
-                    email: '',
-                    topic: '',
-                    subject: '',
-                    message: '',
-                })
-                return response.json();
             });
+
+             // reset form data upon successful submit
+             reset();
+             setSubmitted(true);
+             setFormValues({
+                 name: '',
+                 email: '',
+                 topic: '',
+                 subject: '',
+                 message: '',
+             })
             
           } catch (error) {
             // handle server errors
@@ -208,7 +203,7 @@ const Contact = () => {
 
     // Component: Form
     const showForm = 
-    <Form id="contact-form" onSubmit={handleSubmit(onSubmit)} method="post">
+    <Form id="contact-form" onSubmit={handleSubmit(onSubmit)} action="https://sasheem.dev" method="post">
         <Row>
             <Heading>Send me a message</Heading>
             <p>Tell me about your project aspirations or let's meet over coffee <span role='img' aria-label='Coffee emoji'>
