@@ -149,7 +149,7 @@ const Contact = () => {
             
             if (recaptchaValue !== '') {
                 console.log(`recaptcha: ${recaptchaValue}:${typeof recaptchaValue}`);
-                await fetch(GATEWAY_URL, {
+                await fetch(process.env.AWS_GATEWAY_URL, {
                     method: 'POST',
                     mode: 'cors',
                     cache: 'no-cache',
