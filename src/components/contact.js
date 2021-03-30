@@ -134,6 +134,7 @@ const Contact = () => {
         formState: { isSubmitting},
     } = useForm();
     const GATEWAY_URL = 'https://dff7228u2k.execute-api.us-east-1.amazonaws.com/prod';
+    // const GATEWAY_URL = process.env.AWS_GATEWAY_URL;
 
     // handle submit event
     // error check & submit form w/ lambda function
@@ -146,8 +147,8 @@ const Contact = () => {
         // perform fetch request to gateway api to invoke lambda function with form data
         try {
             
-            if (recaptchaValue !== null) {
-                console.log(`recaptcha: ${recaptchaValue}:${typeof recaptchaValue}`)
+            if (recaptchaValue !== '') {
+                console.log(`recaptcha: ${recaptchaValue}:${typeof recaptchaValue}`);
                 await fetch(GATEWAY_URL, {
                     method: 'POST',
                     mode: 'cors',
@@ -157,6 +158,9 @@ const Contact = () => {
                       'Content-type': 'application/json; charset=UTF-8',
                     },
                   });
+            } else {
+                setSubmitted(false);
+                setError('submit', 'submitError', 'Please toggle recaptcha')
             }
             
 
