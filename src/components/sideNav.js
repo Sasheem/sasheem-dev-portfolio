@@ -48,6 +48,7 @@ const NavText = styled(AnchorLink)`
 	margin: 0;
 	font-size: 1.15rem;
 	font-weight: 700;
+	color: #0D2538;
 `;
 
 // hide the first ul item when screen screen with is larger than 768px
