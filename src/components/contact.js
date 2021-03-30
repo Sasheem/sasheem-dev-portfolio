@@ -161,24 +161,24 @@ const Contact = () => {
 
                 // reset form data upon successful submit
                 reset();
-                setSubmitted(true);
                 setFormValues({
                     name: '',
                     email: '',
                     topic: '',
                     subject: '',
                     message: '',
-                })
+                });
+                setSubmitted(true);
             } else {
+                setError('submit', 'submitError', `Please toggle recaptcha`);
                 setSubmitted(false);
-                setError('submit', 'submitError', 'Please toggle recaptcha')
             }
             
             
           } catch (error) {
             // handle server errors
-            setSubmitted(false);
             setError('submit', 'submitError', `Doh! ${error.message}`);
+            setSubmitted(false);
           }
         
       };
@@ -289,11 +289,6 @@ const Contact = () => {
                 {isSubmitting ? 'Processing...' : 'Send Message'}
             </Button>
         </Row>
-        {errors && errors.submit && errors.submit.message &&
-            <Row>
-                {errors.submit.message}
-            </Row>
-        }
         <Row>
             <ReCAPTCHA
                 ref={recaptchaRef}
@@ -302,6 +297,11 @@ const Contact = () => {
                 onChange={onRecaptchaChange}
             />
         </Row>
+        {errors.submit && errors.submit.message &&
+            <Row>
+                <ErrorText>{errors.submit.message}</ErrorText>
+            </Row>
+        }
     </Form>;
  
     return (
