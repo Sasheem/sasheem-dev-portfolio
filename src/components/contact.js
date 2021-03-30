@@ -141,7 +141,8 @@ const Contact = () => {
         
         // perform recaptcha check
         try {
-            await recaptchaRef.current.executeAsync();
+            const token = await recaptchaRef.current.executeAsync();
+            console.log(`token: ${typeof token}:${token}`);
         } catch (error) {
             setError('submit', 'submitError', `ReCAPTCHA failed`);
         }
