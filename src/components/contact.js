@@ -141,7 +141,7 @@ const Contact = () => {
         
         // perform recaptcha check
         // const token = await recaptchaRef.current.executeAsync();
-        // const recaptchaValue = recaptchaRef.current.getValue(); 
+        const recaptchaValue = recaptchaRef.current.getValue(); 
         // try {
             
         //     console.log(`token: ${typeof token}:${token}`);
@@ -151,15 +151,18 @@ const Contact = () => {
 
         // perform fetch request to gateway api to invoke lambda function with form data
         try {
-            await fetch(GATEWAY_URL, {
-              method: 'POST',
-              mode: 'cors',
-              cache: 'no-cache',
-              body: JSON.stringify(data),
-              headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-              },
-            });
+            if (recaptchaValue !== null) {
+                await fetch(GATEWAY_URL, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    body: JSON.stringify(data),
+                    headers: {
+                      'Content-type': 'application/json; charset=UTF-8',
+                    },
+                  });
+            }
+            
 
              // reset form data upon successful submit
              reset();
@@ -291,14 +294,14 @@ const Contact = () => {
                 {errors.submit.message}
             </Row>
         }
-        {/* <Row>
+        <Row>
             <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={process.env.GATSBY_SITE_KEY}
-                size="invisible"
-                // onChange={onRecaptchaChange}
+                size="normal"
+                onChange={onRecaptchaChange}
             />
-        </Row> */}
+        </Row>
     </Form>;
  
     return (
