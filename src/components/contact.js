@@ -145,7 +145,9 @@ const Contact = () => {
 
         // perform fetch request to gateway api to invoke lambda function with form data
         try {
+            
             if (recaptchaValue !== null) {
+                console.log(`recaptcha: ${recaptchaValue}:${typeof recaptchaValue}`)
                 await fetch(GATEWAY_URL, {
                     method: 'POST',
                     mode: 'cors',
