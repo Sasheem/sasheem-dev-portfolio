@@ -10,7 +10,7 @@ a firebase cloud function to send an email when triggered by database write even
 
 <p>Now my static site is backed by serverless aws lambda functions. I switched to this setup because I recently obtained my AWS Cloud Practitioner certification.</p>
 
-<p>I created the mockups for each project using Sketch and designed the my logo playing around with 
+<p>I created the mockups for each project using Sketch and designed the logo playing around with 
 shapes in Sketch</p>
 
 ### Dev Stack
