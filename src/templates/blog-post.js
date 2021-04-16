@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import styled from 'styled-components';
+// import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 
 // local component
 import Layout from '../components/layout';
@@ -9,12 +10,21 @@ import Layout from '../components/layout';
 // import '../css/blog-post.css'; // make it pretty!
 const Post = styled.div`
   max-width: 90%;
-
+  padding: 0 .25em 0 .25em;
+  
   @media only screen and (min-width: 768px) {
 		max-width: 50vw;
 	}
 `;
-const Content = styled.div``;
+const Content = styled.div`
+  p {
+    line-height: 1.3;
+    font-size: 1.05em;
+  }
+  ul {
+    list-style-type: circle;
+  }
+`;
 const Title = styled.h1`
   margin-top: 5em;
 `;
