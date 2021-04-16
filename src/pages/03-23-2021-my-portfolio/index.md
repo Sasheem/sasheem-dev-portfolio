@@ -5,8 +5,13 @@ title: "Portfolio Static Website"
 ---
 ---
 ### About this project
-Previously I had my portfolio site set up using Google's Cloud Platform to run the backend. This involved calling on a firebase cloud function to send an email when triggered by database write.
-I switched to this current setup after obtaining my AWS Cloud Practicioner certification. Now my static site is backed by serverless aws lambda functions. I created the mockups for each project using Sketch and designed the my logo playing around with shapes in Sketch.
+<p>This project was previously set up using Google's Cloud Platform to run the backend. The contact form invoked 
+a firebase cloud function to send an email when triggered by database write event.</p> 
+
+<p>Now my static site is backed by serverless aws lambda functions. I switched to this setup because I recently obtained my AWS Cloud Practitioner certification.</p>
+
+<p>I created the mockups for each project using Sketch and designed the my logo playing around with 
+shapes in Sketch</p>
 
 ### Dev Stack
 - Gatsby JS

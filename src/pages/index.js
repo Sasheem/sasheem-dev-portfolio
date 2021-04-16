@@ -43,7 +43,7 @@ const links = [
 	slug: `/my-portfolio-post`
 	},
 	{
-		text: 'Donation Web App',
+		text: 'Gatsby Unhoused Website',
 		url: 'https://github.com/Sasheem/gatsby-unhoused-website',
 		description:
 			'This website tells the stories of those experiencing homelesssness and crowdfunds for individuals and families in need of a helping hand.',
