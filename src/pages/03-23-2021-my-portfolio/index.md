@@ -2,8 +2,9 @@
 path: "/my-portfolio-post"
 date: 2021-03-23T17:02:33.962Z
 title: "Portfolio Static Website"
+featuredImage: ../../images/portfolio-web.png
 ---
----
+
 ### About this project
 <p>This project was previously set up using Google's Cloud Platform to run the backend. The contact form invoked 
 a firebase cloud function to send an email when triggered by database write event.</p> 

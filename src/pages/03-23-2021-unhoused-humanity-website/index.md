@@ -2,6 +2,7 @@
 path: "/unhoused-humanity-project"
 date: 2021-03-23T17:02:33.962Z
 title: "Gatsby Unhoused Website"
+featuredImage: ../../images/unhoused-humanity-web.png
 ---
 
 ### About this project

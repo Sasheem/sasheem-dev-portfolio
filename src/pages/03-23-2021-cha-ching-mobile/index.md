@@ -2,6 +2,7 @@
 path: "/tip-tracker-mobile-app"
 date: 2021-03-23T17:02:33.962Z
 title: "Tip Tracker Mobile App"
+featuredImage: ../../images/cha-ching-mobile.png
 ---
 
 ### About this project

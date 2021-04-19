@@ -2,7 +2,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import styled from 'styled-components';
-// import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
 
 // local component
 import Layout from '../components/layout';
@@ -33,11 +34,13 @@ export default function Template({
   data // this prop will be injected by the GraphQL query we'll write in a bit
 }) {
   const { markdownRemark: post } = data // data.markdownRemark holds your post data
+  const image = getImage(data.markdownRemark.frontmatter.featuredImage);
   return (
     <Layout>
       <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />
       <Post>
         <Title>{post.frontmatter.title}</Title>
+        <GatsbyImage image={image} alt={`${post.frontmatter.title} image`} />
         <Content
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
@@ -54,6 +57,11 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(width: 320)
+          }
+        }
       }
     }
   }
