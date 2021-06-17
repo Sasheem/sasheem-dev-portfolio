@@ -6,6 +6,7 @@ featuredImage: ../../images/cha-ching-mobile.png
 ---
 
 ### About this project
+
 <p>I designed and developed this mobile app for users working in the hospitality industry to keep track of their
 tips and wages earned.<p>
 
@@ -14,6 +15,7 @@ tips and wages earned.<p>
 <p>The app runs on both iOS and Android using Expo. I'm working to get it up on both app stores soon.</p>
 
 ### Dev Stack
+
 - React Native
 - React Native Calendars
 - React Native Picker Select
@@ -23,5 +25,6 @@ tips and wages earned.<p>
 - Moment JS
 
 ### Resources
-View source code [here.](https://github.com/Sasheem/tip-tracker-aws)
 
+View source code [here.](https://github.com/Sasheem/tip-tracker-aws)
+Check it out on [Expo.](https://expo.io/@sasheemdev/tip-tracker-aws)
