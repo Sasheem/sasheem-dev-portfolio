@@ -11,9 +11,10 @@ const Header = styled.header`
 	padding-left: 32px;
 	padding-right: 32px;
 
+	// screen > 768px
 	@media only screen and (min-width: 768px) {
-		padding-left: 96px;
-		padding-right: 96px;
+		padding-left: 144px;
+		padding-right: 144px;
 	}
 `;
 const LogoNav = styled.div`

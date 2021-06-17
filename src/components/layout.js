@@ -17,9 +17,10 @@ const Main = styled.main`
 	padding-left: 32px;
 	padding-right: 32px;
 
+	// screen width > than 768px
 	@media only screen and (min-width: 768px) {
-		padding-left: 96px;
-		padding-right: 96px;
+		padding-left: 144px;
+		padding-right: 144px;
 	}
 `;
 const Footer = styled.footer`
