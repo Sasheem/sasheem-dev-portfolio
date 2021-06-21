@@ -37,7 +37,7 @@ export default function Template({
   const image = getImage(data.markdownRemark.frontmatter.featuredImage);
   return (
     <Layout>
-      <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />
+      <Helmet title={`Sasheem Dev Project: ${post.frontmatter.title}`} />
       <Post>
         <Title>{post.frontmatter.title}</Title>
         <GatsbyImage image={image} alt={`${post.frontmatter.title} image`} />

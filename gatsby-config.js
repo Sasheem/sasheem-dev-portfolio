@@ -5,9 +5,12 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Sasheem Dev Portfolio`,
+    title: `Sasheem Snell Portfolio`,
     description: `Freelance web developer portfolio website for showing websites and mobile apps developed by Sasheem.`,
     author: `Sasheem Snell`,
+    twitter: `https://twitter.com/SasheemDev`,
+    linkin: `https://www.linkedin.com/in/sasheem/`,
+    githubLink: `https://github.com/Sasheem`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

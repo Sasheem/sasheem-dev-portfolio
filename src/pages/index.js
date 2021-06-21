@@ -68,7 +68,7 @@ const links = [
 
 const IndexPage = () => (
   <Layout>
-      <SEO title="Home" />
+      <SEO title="Sasheem Snell Portfolio" />
       <title>Home Page</title>
 			<Heading>
 				Hi my name is Sasheem.
@@ -76,7 +76,7 @@ const IndexPage = () => (
 				<HeadingAccent>
 					Welcome to my portfolio!{' '}
 				</HeadingAccent>
-				<span role='img' aria-label='Technologist emoji'>
+				<span role='img' aria-label='Coder emoji'>
 					👨🏾‍💻
 				</span>
 			</Heading>
