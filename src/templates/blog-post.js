@@ -12,6 +12,7 @@ import Layout from '../components/layout';
 const Post = styled.div`
   max-width: 90%;
   padding: 0 .25em 0 .25em;
+  margin: 0 auto;
   
   @media only screen and (min-width: 768px) {
 		max-width: 50vw;
@@ -19,11 +20,14 @@ const Post = styled.div`
 `;
 const Content = styled.div`
   p {
-    line-height: 1.3;
-    font-size: 1.05em;
+    line-height: 1.4;
+    font-size: 1.1em;
   }
   ul {
-    list-style-type: circle;
+    list-style-type: disc;
+  }
+  li {
+    margin-bottom: 0.25em;
   }
 `;
 const Title = styled.h1`

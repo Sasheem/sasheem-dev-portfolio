@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: -apple-system, Roboto, sans-serif, serif;
   }
+  p {
+    font-size: 1.1em;
+  }
   a {
     text-decoration: none;
   }

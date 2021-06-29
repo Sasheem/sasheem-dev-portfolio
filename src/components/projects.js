@@ -53,12 +53,12 @@ const ProjectLink = styled(Link)`
 const ProjectTitle = styled.p`
   color: #116466;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 0.75em;
   margin-top: 1em;
 `;
 const ProjectDescr = styled.p`
   color: #232129;
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 
