@@ -6,9 +6,9 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 // styled components
 const Ul = styled.ul`
   margin-top: 64px;
-    margin-bottom: 288px;
-    padding-left: 0;
-    display: flex;
+  margin-bottom: 288px;
+  padding-left: 0;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
@@ -20,35 +20,34 @@ const Ul = styled.ul`
   }
 `;
 const Li = styled.li`
-    font-weight: 300;
-    font-size: 24px;
-    width: 100%;
-    max-width: 75vw;
-    margin-bottom: 32px;
+  font-weight: 300;
+  font-size: 24px;
+  width: 100%;
+  max-width: 75vw;
+  margin-bottom: 32px;
 
-    @media only screen and (min-width: 768px) {
-      max-width: 25vw;
-    }
+  @media only screen and (min-width: 768px) {
+    max-width: 25vw;
+  }
 `;
 const ProjectLink = styled(Link)`
   min-width: 10em;
   height: 250px;
-  border-radius: 0.5rem;
 
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  // box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  //   0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
-  &:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    cursor: pointer;
-    transform: scale(1.1);
-  }
+  // &:hover {
+  //   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  //     0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  //   cursor: pointer;
+  //   transform: scale(1.1);
+  // }
 
-  &:active {
-    transform: scale(0.98);
-    opacity: 0.8;
-  }
+  // &:active {
+  //   transform: scale(0.98);
+  //   opacity: 0.8;
+  // }
 `;
 const ProjectTitle = styled.p`
   color: #116466;
