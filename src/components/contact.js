@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
+// local components
+import ContactSuccess from './contactSuccess';
+
 // styled components
 const Form = styled.form`
     width: 80%
@@ -133,7 +136,7 @@ const Contact = () => {
         setError, 
         formState: { isSubmitting},
     } = useForm();
-    const GATEWAY_URL = 'https://dff7228u2k.execute-api.us-east-1.amazonaws.com/prod';
+    // const GATEWAY_URL = 'https://dff7228u2k.execute-api.us-east-1.amazonaws.com/prod';
     // const GATEWAY_URL = process.env.AWS_GATEWAY_URL;
 
     // handle submit event
@@ -198,11 +201,7 @@ const Contact = () => {
     };
 
     // Component: Thank you message
-    const showThankYou = (
-        <SuccessText>Thank you I will get back to you shortly <br /> <br />
-            <Button onClick={() => setSubmitted(false)}>Send another message</Button>
-        </SuccessText>
-    );
+    const showThankYou = <ContactSuccess setSubmitted={setSubmitted} />;
 
     // Component: Form
     const showForm = 
