@@ -64,8 +64,8 @@ const Hero = () => (
         </Heading>
         <HeadingDetail>I am a front end <HeadingAccent>web</HeadingAccent> developer</HeadingDetail>
         <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Suspendisse ultricies maximus magna, nec condimentum purus blandit vitae. 
+            HTML5 - CSS3 - Javascript - WordPress <br />
+            React - React Native 
         </Text>
         <Icons>
             <HeadingLink href={docLink.twitter} target='_blank' rel="noreferrer">
