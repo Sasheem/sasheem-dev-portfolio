@@ -30,6 +30,9 @@ const LeftContent = styled(RightContent)`
 const Text = styled.p`
     line-height: 1.5em;
 `;
+const AboutLink = styled.a`
+    color: #E63946;     // red
+`;
 
 const About = () => (
     <View>
@@ -38,15 +41,16 @@ const About = () => (
         </LeftContent>
         <RightContent>
             <Text>
-                I'm a freelance front-end web developer and UI/UX designer specializing in 
-                responsive web design, modern CSS techniques, and logo/branding. I work with 
-                clients to create interfaces and branding that complement each other, 
-                and that are cultivated for accessibility and speed.
+                I'm a software developer specializing in front-end web design, mobile applications, 
+                and logo/branding. I work with clients to create interfaces and branding that are 
+                cultivated for accessibility and speed.
             </Text>
             <Text>
-                I graduated from Florida State University with a Bachelors of Science in Biology. 
-                I also volunteer as the web developer for a nonprofit, Unhoused Humanity, that 
-                works to house individuals and families experiencing homelessness. 
+                I graduated from Florida State University with a Bachelors of Science in Computational 
+                Biology. I currently work for <AboutLink href='https://coss.fsu.edu/' target='_blank' rel="noreferrer">FSU COSSPP IT</AboutLink> 
+                as a Junior Web Developer and volunteer as the web developer for a nonprofit, 
+                <AboutLink href="https://www.unhousedhumanity.org/" target='_blank' rel="noreferrer">Unhoused Humanity</AboutLink>, 
+                that works to house individuals and families experiencing homelessness. 
             </Text>
             <Text>
                 When I am not working on web development, I continue to update my IT 
