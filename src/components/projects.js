@@ -13,6 +13,8 @@ const Ul = styled.ul`
   justify-content: center;
   width: 100%;
 
+
+  // screen larger than 768px
   @media only screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
@@ -26,6 +28,8 @@ const Li = styled.li`
   max-width: 75vw;
   margin-bottom: 32px;
 
+
+  // screen larger than 768px
   @media only screen and (min-width: 768px) {
     max-width: 25vw;
   }
@@ -60,9 +64,44 @@ const ProjectDescr = styled.p`
   font-size: 16px;
 `;
 
+// data
+const links = [
+	{
+		text: 'Portfolio Static Website',
+		url: 'https://github.com/Sasheem/sasheem-dev-portfolio',
+		description: 'Static website built using GatsbyJS and hosting on Amazon S3',
+		color: '#E95800',
+    image: `one`,
+    path: `../images/portfolio-web.png`,
+    alt: `Sasheem portfolio website`,
+	slug: `/my-portfolio-post`
+	},
+	{
+		text: 'Gatsby Unhoused Website',
+		url: 'https://github.com/Sasheem/gatsby-unhoused-website',
+		description:
+			'This website tells the stories of those experiencing homelesssness and crowdfunds for individuals and families in need of a helping hand.',
+		color: '#1099A8',
+    image: `two`,
+    path: `../images/unhoused-humanity-web.png`,
+    alt: `Unhoused humanity website`,
+	slug: `/unhoused-humanity-project`
+	},
+	{
+		text: 'Tip Tracker Mobile App',
+		url: 'https://github.com/Sasheem/tip-tracker-aws',
+		description:
+			'Tip tracking mobile app for users working in hospitality allowing them to track tips and wages earned.',
+		color: '#BC027F',
+    image: `three`,
+    path: `../images/cha-ching-mobile.png`,
+    alt: `Tip tracker mobile app`,
+	slug: `/tip-tracker-mobile-app`
+	},
+];
 
 // markup
-const Projects = ({ links }) => {
+const Projects = () => {
     const data = useStaticQuery(graphql`
     fragment processProjectImage on File {
       childImageSharp {
