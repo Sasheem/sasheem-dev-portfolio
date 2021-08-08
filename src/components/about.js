@@ -47,8 +47,8 @@ const About = () => (
             </Text>
             <Text>
                 I graduated from Florida State University with a Bachelors of Science in Computational 
-                Biology. I currently work for <AboutLink href='https://coss.fsu.edu/' target='_blank' rel="noreferrer">FSU COSSPP IT</AboutLink> 
-                as a Junior Web Developer and volunteer as the web developer for a nonprofit, 
+                Biology. I currently work for <AboutLink href='https://coss.fsu.edu/' target='_blank' rel="noreferrer">FSU COSSPP IT</AboutLink> {' '} 
+                as a Junior Web Developer and volunteer as the web developer for a nonprofit, {' '}
                 <AboutLink href="https://www.unhousedhumanity.org/" target='_blank' rel="noreferrer">Unhoused Humanity</AboutLink>, 
                 that works to house individuals and families experiencing homelessness. 
             </Text>
