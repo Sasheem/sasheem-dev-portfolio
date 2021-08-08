@@ -2,34 +2,58 @@ import React from 'react';
 import styled from 'styled-components';
 
 // local components
-import GithubIcon from '../assets/github-brands.svg';
+import Twitter from '../assets/twitter.svg';
+import Linkedin from '../assets/linkedin.svg';
+import Github from '../assets/github.svg';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Projects from '../components/projects';
 import Contact from '../components/contact';
 
 // styles
-const Heading = styled.h1`
+const HeadingContent = styled.div`
 	margin-top: 256px;
 	margin-bottom: 336px;
+	color: #44566C;
+	display: flex;
+	flex-direction: column;
+	max-width: 30vw
+`;
+const Heading = styled.h1`
 	max-width: 540px;
+	margin-bottom: 0.25em;
 `;
 const SubHeading = styled.h2`
 	margin-top: 1em;
 	margin-left: 0;
+	color: #44566C;
 `;
 const HeadingAccent = styled.span`
-	color: #a0aec0;
+	color: #E63946;
 `;
-
+const HeadingDetail = styled.p`
+	font-weight: 300;
+	font-size: 1.5em;
+	margin: 0;
+`;
+const HeadingText = styled.p`
+	line-height: 1.5em;
+`;
 const HeadingLink = styled.a`
 	vertical-align: 5%;
+`;
+const Icons = styled.div`
+	display: flex;
+	justify-content: space-between;
+	max-width: 10em;
 `;
 
 // data
 const docLink = {
 	text: 'Github Profile',
 	url: 'https://github.com/Sasheem',
+	twitter: 'https://twitter.com/SasheemDev',
+	linkedin: 'https://www.linkedin.com/in/sasheem/',
 };
 const links = [
 	{
@@ -70,22 +94,33 @@ const IndexPage = () => (
   <Layout>
       <SEO title="Sasheem Snell Portfolio" />
       <title>Home Page</title>
+		<HeadingContent>
 			<Heading>
-				Hi my name is Sasheem.
-				<br />
-				<HeadingAccent>
-					Welcome to my portfolio!{' '}
-				</HeadingAccent>
+				Hi! I'm <HeadingAccent>Sasheem</HeadingAccent>
 				<span role='img' aria-label='Coder emoji'>
 					👨🏾‍💻
 				</span>
 			</Heading>
-			<HeadingLink href={docLink.url} target='_blank' rel="noreferrer">
-				<GithubIcon />
-			</HeadingLink>
-			<SubHeading id="projects-section">My projects</SubHeading>
-      <Projects links={links} />
-      <Contact />
+			<HeadingDetail>I am a front end <HeadingAccent>web</HeadingAccent> developer</HeadingDetail>
+			<HeadingText>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Suspendisse ultricies maximus magna, nec condimentum purus blandit vitae. 
+			</HeadingText>
+			<Icons>
+				<HeadingLink href={docLink.twitter} target='_blank' rel="noreferrer">
+					<Twitter />
+				</HeadingLink>
+				<HeadingLink href={docLink.linkedin} target='_blank' rel="noreferrer">
+					<Linkedin />
+				</HeadingLink>
+				<HeadingLink href={docLink.url} target='_blank' rel="noreferrer">
+					<Github />
+				</HeadingLink>
+			</Icons>
+		</HeadingContent>
+		<SubHeading id="projects-section">My projects</SubHeading>
+		<Projects links={links} />
+		<Contact />
     </Layout>
 );
 

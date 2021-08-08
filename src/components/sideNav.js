@@ -10,14 +10,16 @@ const Ul = styled.ul`
 	flex-flow: row nowrap;
 	margin: 0;
 	z-index: 1;
-
+	
 	li {
 		padding: 25px 10px;
+		
 	}
 	a,
 	p {
 		text-decoration: none;
 		background-color: none;
+		color: #44566C;
 	}
 	a:hover,
 	a:active,
@@ -27,6 +29,7 @@ const Ul = styled.ul`
 		color: #8a8a8a;
 	}
 
+	// when screen is smaller than 768px
 	@media only screen and (max-width: 768px) {
 		flex-flow: column nowrap;
 		background-color: #0D2538;
@@ -40,7 +43,7 @@ const Ul = styled.ul`
 		transition: transform 0.3s ease-in-out;
 
 		p,a {
-			color: #a0aec0;
+			color: #44566C;
 		}
 	}
 `;
