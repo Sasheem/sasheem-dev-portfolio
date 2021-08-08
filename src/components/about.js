@@ -18,8 +18,14 @@ const View = styled.div`
         max-width: 100vw; 
     }
 `;
-const Content = styled.div`
+const RightContent = styled.div`
     flex: 1;
+`;
+const LeftContent = styled(RightContent)`
+    // screen smaller than 768px
+    @media only screen and (max-width: 768px) {
+        max-width: 50%;
+    }
 `;
 const Text = styled.p`
     line-height: 1.5em;
@@ -27,10 +33,10 @@ const Text = styled.p`
 
 const About = () => (
     <View>
-        <Content>
-            <Heading2 title='About Me' />
-        </Content>
-        <Content>
+        <LeftContent>
+            <Heading2 id='about-section' title='About Me' />
+        </LeftContent>
+        <RightContent>
             <Text>
                 I'm a freelance front-end web developer and UI/UX designer specializing in 
                 responsive web design, modern CSS techniques, and logo/branding. I work with 
@@ -47,7 +53,7 @@ const About = () => (
                 skills and expand on my certifications and time management. Check out 
                 my latest projects and services I offer.
             </Text>
-        </Content>
+        </RightContent>
     </View>
 );
 
