@@ -57,7 +57,7 @@ const Icons = styled.div`
 const Hero = () => (
     <Content>
         <Heading>
-            Hi! I'm <HeadingAccent>Sasheem</HeadingAccent>
+            Hi! I'm <HeadingAccent>Sasheem</HeadingAccent> {' '}
             <span role='img' aria-label='Coder emoji'>
                 👨🏾‍💻
             </span>
