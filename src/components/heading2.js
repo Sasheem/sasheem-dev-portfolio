@@ -3,13 +3,20 @@ import styled from 'styled-components';
 
 // styles
 const Container = styled.div`
-    max-width: 50%;
+    max-width: 100%;
 `;
-const Header2 = styled.h2``;
+const Header2 = styled.h2`
+    margin-bottom: 0.25em;
+`;
 const Underline = styled.div`
     background-color: #E63946;     // red
     height: 10px;
     width: 35%;
+
+    // screen larger than 768px
+    @media only screen and (min-width: 768px) {
+        width: 20%;
+    }
 `;
 
 // markup
