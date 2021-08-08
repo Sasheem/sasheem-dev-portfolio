@@ -22,7 +22,6 @@ const IndexPage = () => (
       <title>Home Page</title>
 		<Hero />
 		<About />
-		<SubHeading id="projects-section">My projects</SubHeading>
 		<Projects />
 		<Contact />
     </Layout>

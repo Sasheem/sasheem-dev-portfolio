@@ -3,8 +3,40 @@ import styled from 'styled-components';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+// local components
+import Heading2 from './heading2';
+
 // styled components
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 80vw;
+
+  // screen larger than 768px
+  @media only screen and (min-width: 768px) {
+    max-width: 100vw; 
+  }
+
+  h2, p {
+    color: #44566C;     // dark blue grey
+  }
+`;
+const Top = styled.div`
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+`;
+const HeadingContainer = styled.div`
+  flex: 1;
+`;
+const Filler = styled.div`
+  flex: 1;
+`;
 const Ul = styled.ul`
+  flex: 6;
   margin-top: 64px;
   margin-bottom: 288px;
   padding-left: 0;
@@ -12,7 +44,6 @@ const Ul = styled.ul`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-
 
   // screen larger than 768px
   @media only screen and (min-width: 768px) {
@@ -54,13 +85,11 @@ const ProjectLink = styled(Link)`
   // }
 `;
 const ProjectTitle = styled.p`
-  color: #116466;
   font-weight: bold;
   font-size: 0.75em;
   margin-top: 1em;
 `;
 const ProjectDescr = styled.p`
-  color: #232129;
   font-size: 16px;
 `;
 
@@ -131,34 +160,42 @@ const Projects = () => {
 
 
     return (
-        <Ul>
+        <Container>
+          <Top>
+            <HeadingContainer>
+              <Heading2 id="projects-section" title='Latest Work' />
+            </HeadingContainer>
+            <Filler />
+          </Top>
+          <Ul>
             {links.map((link) => (
-					<Li key={link.url}>
-              <ProjectLink to={link.slug}>
-                <GatsbyImage
-                    image={link.image === 'one' 
-                        ? projectDataOne : link.image === 'two' 
-                        ? projectDataTwo : link.image === 'three' 
-                        ? projectDataThree : projectBlank
-                    }
-                    width={300}
-                    height={150}
-                    quality={95}
-                    placeholder="blurred"
-                    formats={["AUTO", "WEBP", "AVIF"]}
-                    alt={link.alt}
-                    style={{ borerRadius: `5px` }}
-                />
-                <ProjectTitle>
-                    {link.text}
-                </ProjectTitle>
-                <ProjectDescr>
-                    {link.description}
-                </ProjectDescr>
-            </ProjectLink>	
-					</Li>
-				))}
-        </Ul>
+            <Li key={link.url}>
+                <ProjectLink to={link.slug}>
+                  <GatsbyImage
+                      image={link.image === 'one' 
+                          ? projectDataOne : link.image === 'two' 
+                          ? projectDataTwo : link.image === 'three' 
+                          ? projectDataThree : projectBlank
+                      }
+                      width={300}
+                      height={150}
+                      quality={95}
+                      placeholder="blurred"
+                      formats={["AUTO", "WEBP", "AVIF"]}
+                      alt={link.alt}
+                      style={{ borerRadius: `5px` }}
+                  />
+                  <ProjectTitle>
+                      {link.text}
+                  </ProjectTitle>
+                  <ProjectDescr>
+                      {link.description}
+                  </ProjectDescr>
+              </ProjectLink>	
+            </Li>
+          ))}
+          </Ul>
+        </Container>
     ); 
 };
 
