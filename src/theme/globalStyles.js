@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: -apple-system, Roboto, sans-serif, serif;
   }
-  h1, h2, h3, h4, h5, h6, p, a {
+  h1, h2, h3, h4, h5, h6, p, a, label {
     color: #44566C;     // dark blue grey
   }
   p {
