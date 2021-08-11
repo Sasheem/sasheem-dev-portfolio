@@ -13,7 +13,7 @@ const ContactForm = styled.form`
 
     // screen smaller than 768px
     @media only screen and (max-width: 768px) {
-        max-width: 90vw;
+        max-width: 80vw;
     }
 `;
 const Row = styled.div`
@@ -23,8 +23,14 @@ const Row = styled.div`
 `;
 const DoubleRow = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
+    grid-template-columns: 1fr;
+    
+    // screen larger than 768px
+    @media only screen and (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+    }
+    
 `;
 const Label = styled.label`
     margin-bottom: 0.25em;
