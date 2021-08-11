@@ -46,27 +46,8 @@ const Textarea = styled.textarea`
     font-size: 0.9em;
     line-height: 1.25;
 `;
-// const Button = styled.button`
-//     diplay: inline-block;
-//     background-color: #3e4cae;
-//     color: white;
-//     border-radius: 0.3em;
-//     padding: 1em 0.5em;
-//     border: none;
-//     margin-bottom: 1em;
-//     -webkit-appearance: none;
-//     -moz-appearance: none;
-
-//     &:hover {
-//         cursor: pointer;
-//     }
-// `;
 const ErrorText = styled.p`
     color: red;
-`;
-const SuccessText = styled.p`
-    color: green;
-    text-align: center;
 `;
 
 const Form = () => {
