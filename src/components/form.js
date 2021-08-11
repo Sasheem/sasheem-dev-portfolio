@@ -10,6 +10,11 @@ import ContactSuccess from './contactSuccess';
 // styled components
 const ContactForm = styled.form`
     flex: 2;
+
+    // screen smaller than 768px
+    @media only screen and (max-width: 768px) {
+        max-width: 90vw;
+    }
 `;
 const Row = styled.div`
     display: flex;
