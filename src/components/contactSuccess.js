@@ -4,16 +4,19 @@ import { Button, Text } from './common';
 
 // styled components
 const Container = styled.div`
+    flex: 2;
     display: flex;
-    justify-content: center;
     width: 100%;
 `;
 const Content = styled.div`
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     
+    h4 {
+        color: #1DAB45;     // success green
+    }
     h4, p {
-        text-align: center;
+        text-align: left;
     }
     p {
         margin-bottom: 2.5em;
@@ -26,7 +29,9 @@ const ContactSuccess = ({ setSubmitted }) => {
             <Content>
                 <h4>Message Received</h4>
                 <Text>Thank you for reaching out, I will get back to you shortly!</Text>
-                <Button onClick={() => setSubmitted(false)}>Return</Button>
+                <div>
+                    <Button onClick={() => setSubmitted(false)}>Return</Button>
+                </div>
             </Content>
         </Container>
     )

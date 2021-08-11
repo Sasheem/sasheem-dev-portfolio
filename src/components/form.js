@@ -4,6 +4,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
 // local components
+import { Button } from './common';
 import ContactSuccess from './contactSuccess';
 
 // styled components
@@ -40,21 +41,21 @@ const Textarea = styled.textarea`
     font-size: 0.9em;
     line-height: 1.25;
 `;
-const Button = styled.button`
-    diplay: inline-block;
-    background-color: #3e4cae;
-    color: white;
-    border-radius: 0.3em;
-    padding: 1em 0.5em;
-    border: none;
-    margin-bottom: 1em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+// const Button = styled.button`
+//     diplay: inline-block;
+//     background-color: #3e4cae;
+//     color: white;
+//     border-radius: 0.3em;
+//     padding: 1em 0.5em;
+//     border: none;
+//     margin-bottom: 1em;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
 
-    &:hover {
-        cursor: pointer;
-    }
-`;
+//     &:hover {
+//         cursor: pointer;
+//     }
+// `;
 const ErrorText = styled.p`
     color: red;
 `;
@@ -170,7 +171,7 @@ const Form = () => {
                 <Input 
                     type="text" 
                     name="email" 
-                    placeholder="jon.appleseed@gmail.com"
+                    placeholder="jon.email@gmail.com"
                     disabled={isSubmitting} 
                     value={formValues.email} 
                     onChange={handleChange} 
@@ -186,7 +187,7 @@ const Form = () => {
                 <Input 
                     type='tel'
                     name='phone'
-                    placeholder='(555)-555-5555'
+                    placeholder='(555) - 555 - 5555'
                     pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
                     disabled={isSubmitting}
                     value={formValues.phone}
