@@ -6,10 +6,11 @@ export const Text = styled.p`
 
 export const Button = styled.button`
     diplay: inline-block;
-    background-color: #3e4cae;
+    background-color: #457B9D;      // teal blue
     color: white;
     border-radius: 0.3em;
-    padding: 1em 0.5em;
+    padding: 1em 1.5em;
+    font-size: 1em;
     border: none;
     margin-bottom: 1em;
     -webkit-appearance: none;
