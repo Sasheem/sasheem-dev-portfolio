@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>linkedin2</title>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Wireframe" transform="translate(-951.000000, -4076.000000)" fill="#8996A6" fill-rule="nonzero">
+            <g id="Contact" transform="translate(0.000000, 3625.000000)">
+                <g id="Contact-Info" transform="translate(890.000000, 139.000000)">
+                    <g id="Social-Details" transform="translate(0.000000, 267.000000)">
+                        <g id="Social-Icons" transform="translate(16.000000, 43.000000)">
+                            <g id="linkedin2" transform="translate(45.000000, 2.000000)">
+                                <path d="M7.14285714,5.53846154 L11.0964286,5.53846154 L11.0964286,7.50253846 L11.1528571,7.50253846 C11.7028571,6.54646154 13.0492857,5.53846154 15.0557143,5.53846154 C19.2285714,5.53846154 20,8.05638462 20,11.331 L20,18 L15.8792857,18 L15.8792857,12.0876923 C15.8792857,10.6774615 15.8492857,8.86361538 13.7357143,8.86361538 C11.5892857,8.86361538 11.2621429,10.3991538 11.2621429,11.9852308 L11.2621429,18 L7.14285714,18 L7.14285714,5.53846154 Z" id="Path"></path>
+                                <polygon id="Path" points="0 5.53846154 4.28571429 5.53846154 4.28571429 18 0 18"></polygon>
+                                <path d="M4.28571429,2.07692308 C4.28571429,3.22407692 3.32642857,4.15384615 2.14285714,4.15384615 C0.959285714,4.15384615 0,3.22407692 0,2.07692308 C0,0.929769231 0.959285714,0 2.14285714,0 C3.32642857,0 4.28571429,0.929769231 4.28571429,2.07692308 Z" id="Path"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
