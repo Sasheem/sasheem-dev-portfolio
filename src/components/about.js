@@ -41,7 +41,7 @@ const About = () => (
         </LeftContent>
         <RightContent>
             <Text>
-                I'm a software developer specializing in front-end development for websites, web and mobile apps.
+                I'm a software developer specializing in front-end development for websites and mobile apps.
                 I work with clients to create user interfaces and that are responsive, engaging, and consistent 
                 with their branding.
             </Text>
