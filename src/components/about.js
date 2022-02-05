@@ -41,21 +41,21 @@ const About = () => (
         </LeftContent>
         <RightContent>
             <Text>
-                I'm a software developer specializing in front-end web design, mobile applications, 
-                and logo/branding. I work with clients to create interfaces and branding that are 
-                cultivated for accessibility and speed.
+                I'm a software developer specializing in front-end development for websites, web and mobile apps.
+                I work with clients to create user interfaces and that are responsive, engaging, and consistent 
+                with their branding.
             </Text>
             <Text>
                 I graduated from Florida State University with a Bachelors of Science in Computational 
                 Biology. I currently work for <AboutLink href='https://coss.fsu.edu/' target='_blank' rel="noreferrer">FSU COSSPP IT</AboutLink> {' '} 
-                as a Junior Web Developer and volunteer as the web developer for a nonprofit, {' '}
+                as a Full-Stack Web Developer and maintain the website for a nonprofit, {' '}
                 <AboutLink href="https://www.unhousedhumanity.org/" target='_blank' rel="noreferrer">Unhoused Humanity</AboutLink>, 
                 that works to house individuals and families experiencing homelessness. 
             </Text>
             <Text>
                 When I am not working on web development, I continue to update my IT 
                 skills and expand on my certifications and time management. Check out 
-                my latest projects and services I offer.
+                my latest projects!
             </Text>
         </RightContent>
     </View>
