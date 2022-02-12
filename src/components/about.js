@@ -30,9 +30,7 @@ const LeftContent = styled(RightContent)`
 const Text = styled.p`
     line-height: 1.5em;
 `;
-const AboutLink = styled.a`
-    color: #E63946;     // red
-`;
+const AboutLink = styled.a``;
 
 const About = () => (
     <View>
@@ -41,9 +39,9 @@ const About = () => (
         </LeftContent>
         <RightContent>
             <Text>
-                I'm a software developer specializing in front-end development for websites and mobile apps.
-                I work with clients to create user interfaces and that are responsive, engaging, and consistent 
-                with their branding.
+                I’m a Software Developer specializing in front end development of websites and web applications. I have experience
+                with HTML5, CSS3, Javascript, React, and WordPress. I also offer web consulting in regards to website 
+                design, development, and hosting.
             </Text>
             <Text>
                 I graduated from Florida State University with a Bachelors of Science in Computational 
@@ -54,8 +52,8 @@ const About = () => (
             </Text>
             <Text>
                 When I am not working on web development, I continue to update my IT 
-                skills and expand on my certifications and time management. Check out 
-                my latest projects!
+                skills by expanding on my AWS <AboutLink href='https://www.credly.com/badges/b14fa4a8-73d6-4ef5-9c03-25c71572d82a/public_url' target='_blank' rel='noreferrer'>certifications</AboutLink>. {' '}
+                Check out my latest projects!
             </Text>
         </RightContent>
     </View>
