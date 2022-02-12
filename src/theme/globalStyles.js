@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: #E63946;     // red
   }
   ul {
     list-style-type: none;
