@@ -6,6 +6,7 @@ featuredImage: ../../images/unhoused-humanity-web.png
 ---
 
 ### About this project
+
 <p>Unhoused Humanity is a nonprofit that works to house individuals and families experiencing homelessness.
 I volunteer for them by maintaining their website on Squarespace.<p>
 
@@ -14,6 +15,7 @@ Users can browse success stories and currently funded clients to crowdfund. In a
 an account in order to track their impact on ending homelessness.</p>
 
 ### Dev Stack
+
 - Gatsby JS
 - Google Firestore
 - Google Authentication
@@ -25,8 +27,9 @@ an account in order to track their impact on ending homelessness.</p>
 - Sketch design tool
 
 ### Resources
-View the Squarespace site (prod) [here.](https://www.unhousedhumanity.org/)
 
-View Gatsby site (dev) [here.](https://musing-joliot-870301.netlify.app/)
+Squarespace Website [(prod)](https://www.unhousedhumanity.org/)
 
-View new donation web app source code [here.](https://github.com/Sasheem/gatsby-unhoused-website)
+Gatsby Website [(dev)](https://musing-joliot-870301.netlify.app/)
+
+Gatsby Website Github [(source code)](https://github.com/Sasheem/gatsby-unhoused-website)
