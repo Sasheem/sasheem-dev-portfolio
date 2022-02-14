@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { navigate } from 'gatsby-link';
+import { navigate } from 'gatsby';
 import styled from 'styled-components';
 import Recaptcha from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
