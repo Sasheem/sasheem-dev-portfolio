@@ -141,7 +141,22 @@ const Form = () => {
 
     // Component: Form
     const showForm = 
-    <ContactForm onSubmit={handleSubmit(onSubmit)} method="post">
+    // <ContactForm onSubmit={handleSubmit(onSubmit)} method="post">
+    <ContactForm 
+        name="contact-sdev" 
+        method="POST" 
+        data-netlify="true" 
+        netlify-honeypot="bot-field" 
+        data-netlify-recaptcha="true"
+    >
+        <input type="hidden" name="form-name" value="contact-sdev" />
+        <Row>
+            <p style={{ display: `none` }}>
+                <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+            </p>
+        </Row>
         <Row>
             <Label htmlFor='name'>Name</Label>
             <Input 
@@ -180,12 +195,12 @@ const Form = () => {
                     type='tel'
                     name='phone'
                     placeholder='(555) - 555 - 5555'
-                    pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+                    pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
                     disabled={isSubmitting}
                     value={formValues.phone}
                     onChange={handleChange}
                     ref={register({
-                        pattern: /[0-9]{3}-[0-9]{3}-[0-9]{4}/
+                        pattern: /[0-9]{3}[0-9]{3}[0-9]{4}/
                     })}
                 />
             </Row>
@@ -210,13 +225,16 @@ const Form = () => {
             {isSubmitting ? 'Processing...' : 'Send Message'}
         </Button>
         <Row>
+            <div data-netlify-recaptcha="true"></div>
+        </Row>
+        {/* <Row>
             <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={process.env.GATSBY_SITE_KEY}
                 size="normal"
                 onChange={onRecaptchaChange}
             />
-        </Row>
+        </Row> */}
         {errors.submit && errors.submit.message &&
             <Row>
                 <ErrorText>{errors.submit.message}</ErrorText>
