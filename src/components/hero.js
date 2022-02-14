@@ -49,7 +49,7 @@ const Hero = () => (
             HTML5 - CSS3 - Javascript - WordPress <br />
             React - React Native 
         </Text>
-        <Social />
+        <Social forContact={false} />
     </Content>
 );
 

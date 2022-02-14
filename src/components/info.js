@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Phone} from '@styled-icons/entypo/Phone';
+import {LocationPin} from '@styled-icons/entypo/LocationPin';
+import {Mail} from '@styled-icons/entypo/Mail';
 
 // local components
 import Social from './social';
-import Location from '../assets/location-lg.svg';
-import Email from '../assets/email-lg.svg';
-import Phone from '../assets/phone-lg.svg';
 
 // styled components
 const Container = styled.div`
     flex: 1;
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 1em;
     height: 50%;
 `;
 const Header = styled.div``;
@@ -26,20 +26,38 @@ const Filler = styled.div`
 `;
 const Icon = styled.div`
     flex: 1;
+    color: #8996A6;
+    h2 {
+        margin: 0;
+    }
 `;
 const Content = styled.div`
     flex: 4;
 `;
 const Text = styled.p`
     margin: 0 0 .5em 0;
-    color: #8996A6
+    color: #8996A6;
 `;
-
+const PhoneIcon = styled(Phone)`
+    color: #8996A6;
+    height: 2em;
+    width: 2em;
+`;
+const LocationIcon = styled(LocationPin)`
+    color: #8996A6;
+    height: 2em;
+    width: 2em;
+`;
+const MailIcon = styled(Mail)`
+    color: #8996A6;
+    height: 2em;
+    width: 2em;
+`;
 // data
 const data = {
     location: 'Tallahassee, FL',
     email: 'sasheem@sasheemdev.com',
-    phone: '(850)-485-2481',
+    phone: '(850) - 485 - 2481',
 };
 
 const Info = () => (
@@ -50,34 +68,35 @@ const Info = () => (
         <Row>
             <Filler />
             <Icon>
-                <Location />
+                <LocationIcon />
             </Icon>
             <Content>
                 <Text>{data.location}</Text>
             </Content>
         </Row>
-        <Row>
-            <Filler />
-            <Icon>
-                <Email />
-            </Icon>
-            <Content>
-                <a href='mailto:sasheem@sasheemdev.com' target='_blank' rel="noopener noreferrer">
+        <a href='mailto:sasheem@sasheemdev.com' target='_blank' rel="noopener noreferrer">
+            <Row>
+                <Filler />
+                <Icon>
+                    <MailIcon />
+                </Icon>
+                <Content>
                     <Text>{data.email}</Text>
-                </a>
-            </Content>
-        </Row>
-        <Row>
-            <Filler />
-            <Icon>
-                <Phone />
-            </Icon>
-            <Content>
-                <a href='tel:850-485-2481' target='_blank' rel="noopener noreferrer">
+                </Content>
+            </Row>   
+        </a>
+        <a href='tel:850-485-2481' target='_blank' rel="noopener noreferrer">
+            <Row>
+                <Filler />
+                <Icon>
+                    <PhoneIcon />
+                </Icon>
+                <Content>
                     <Text>{data.phone}</Text>  
-                </a>
-            </Content>
-        </Row>
+                </Content>
+            </Row> 
+        </a>
+        
         <SocialRow>
             <h3>Follow Me</h3>
             <div style={{ display: `flex`, flexDirection: `row` }}>

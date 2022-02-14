@@ -1,13 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Linkedin} from '@styled-icons/entypo-social/Linkedin';
+import {Twitter} from '@styled-icons/entypo-social/Twitter';
+import {Github} from '@styled-icons/bootstrap/Github';
 
-// local components
-import Twitter from '../assets/twitter.svg';
-import Linkedin from '../assets/linkedin.svg';
-import Github from '../assets/github.svg';
-import TwitterLG from '../assets/twitter-lg.svg';
-import LinkedinLG from '../assets/linkedin-lg.svg';
-import GithubLG from '../assets/github-lg.svg';
+// styled components
+const TwitterIcon = styled(Twitter)`
+    color: ${(props) => (props.forContact ? '#8996A6' : '#1D3557')};
+    height: ${(props) => (props.forContact ? '2em' : '2.5em')};
+    width: ${(props) => (props.forContact ? '2em' : '2.5em')};
+`;
+const LinkedinIcon = styled(Linkedin)`
+    color: ${(props) => (props.forContact ? '#8996A6' : '#1D3557')};
+    height: ${(props) => (props.forContact ? '2em' : '2.5em')};
+    width: ${(props) => (props.forContact ? '2em' : '2.5em')};
+`;
+const GithubIcon = styled(Github)`
+    color: ${(props) => (props.forContact ? '#8996A6' : '#1D3557')};
+    height: ${(props) => (props.forContact ? '2em' : '2.5em')};
+    width: ${(props) => (props.forContact ? '2em' : '2.5em')};
+`;
 
 // data
 const docLink = {
@@ -30,13 +42,13 @@ const HeadingLink = styled.a`
 const Social = ({ forContact }) => (
     <Icons>
         <HeadingLink href={docLink.twitter} target='_blank' rel="noreferrer">
-            {forContact ? <TwitterLG /> : <Twitter />}
+            <TwitterIcon forContact={forContact} />
         </HeadingLink>
         <HeadingLink href={docLink.linkedin} target='_blank' rel="noreferrer">
-            {forContact ? <LinkedinLG /> : <Linkedin />}
+            <LinkedinIcon forContact={forContact} />
         </HeadingLink>
         <HeadingLink href={docLink.url} target='_blank' rel="noreferrer">
-            {forContact ? <GithubLG /> : <Github />}
+            <GithubIcon forContact={forContact} />
         </HeadingLink>
     </Icons>
 );
