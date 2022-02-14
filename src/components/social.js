@@ -31,9 +31,10 @@ const docLink = {
 
 // styled components
 const Icons = styled.div`
-	display: flex;
-	justify-content: space-between;
-	max-width: 10em;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+	max-width: 12em;
 `;
 const HeadingLink = styled.a`
 	vertical-align: 5%;
