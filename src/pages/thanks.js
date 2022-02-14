@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import Social from '../components/social';
 
 const Content = styled.div`
-	margin-top: 256px;
+	margin-top: 144px;
 	margin-bottom: 144px;
 	color: #44566C;     // dark blue grey
 	display: flex;
