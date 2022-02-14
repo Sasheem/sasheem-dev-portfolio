@@ -144,19 +144,12 @@ const Form = () => {
     // <ContactForm onSubmit={handleSubmit(onSubmit)} method="post">
     <ContactForm 
         name="contact-sdev" 
-        method="POST" 
-        data-netlify="true" 
-        netlify-honeypot="bot-field" 
+        method="POST"
         data-netlify-recaptcha="true"
+        data-netlify="true"
     >
         <input type="hidden" name="form-name" value="contact-sdev" />
-        <Row>
-            <p style={{ display: `none` }}>
-                <label>
-                Don’t fill this out if you’re human: <input name="bot-field" />
-                </label>
-            </p>
-        </Row>
+        <div data-netlify-recaptcha="true"></div>
         <Row>
             <Label htmlFor='name'>Name</Label>
             <Input 
@@ -224,9 +217,6 @@ const Form = () => {
         <Button type="submit">
             {isSubmitting ? 'Processing...' : 'Send Message'}
         </Button>
-        <Row>
-            <div data-netlify-recaptcha="true"></div>
-        </Row>
         {/* <Row>
             <ReCAPTCHA
                 ref={recaptchaRef}
@@ -243,7 +233,8 @@ const Form = () => {
     </ContactForm>;
  
     return (
-        submitted ? showThankYou : showForm
+        showForm
+        // submitted ? showThankYou : showForm
     );
 };
 
