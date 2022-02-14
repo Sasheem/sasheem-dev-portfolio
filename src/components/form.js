@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, createRef } from 'react';
+import { navigate } from 'gatsby';
 import styled from 'styled-components';
-import ReCAPTCHA from 'react-google-recaptcha';
+import Recaptcha from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
 // local components
@@ -56,7 +57,47 @@ const ErrorText = styled.p`
     color: red;
 `;
 
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
+if (typeof RECAPTCHA_KEY === 'undefined') {
+  throw new Error(`
+  Env var GATSBY_APP_SITE_RECAPTCHA_KEY is undefined! 
+  You probably forget to set it in your Netlify build environment variables. 
+  Make sure to get a Recaptcha key at https://www.netlify.com/docs/form-handling/#custom-recaptcha-2-with-your-own-settings
+  Note this demo is specifically for Recaptcha v2
+  `)
+}
+
+function encode(data) {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
+  }
+  
+
 const Form = () => {
+    const [state, setState] = useState({});
+    const recaptchaRef = createRef();
+    const handleChange = (e) => {
+        setState({ ...state, [e.target.name]: e.target.value })
+      }
+    
+    const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const recaptchaValue = recaptchaRef.current.getValue()
+    fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+        'form-name': form.getAttribute('name'),
+        'g-recaptcha-response': recaptchaValue,
+        ...state,
+        }),
+    })
+        .then(() => navigate(form.getAttribute('action')))
+        .catch((error) => alert(error))
+    }
+
     const [submitted, setSubmitted] = useState(false);
     const [formValues, setFormValues] = useState({
         name: '',
@@ -64,72 +105,72 @@ const Form = () => {
         phone: '',
         message: '',
     });
-    const recaptchaRef = useRef();
-    const { 
-        register, 
-        handleSubmit, 
-        errors, 
-        reset, 
-        setError, 
-        formState: { isSubmitting},
-    } = useForm();
+    // const recaptchaRef = useRef();
+    // const { 
+    //     register, 
+    //     handleSubmit, 
+    //     errors, 
+    //     reset, 
+    //     setError, 
+    //     formState: { isSubmitting},
+    // } = useForm();
     // const GATEWAY_URL = 'https://dff7228u2k.execute-api.us-east-1.amazonaws.com/prod';
     // const GATEWAY_URL = process.env.AWS_GATEWAY_URL;
 
     // handle submit event
     // error check & submit form w/ lambda function
-    const onSubmit = async data => {
+    // const onSubmit = async data => {
         
-        // perform recaptcha check
-        // const token = await recaptchaRef.current.executeAsync();
-        const recaptchaValue = recaptchaRef.current.getValue(); 
+    //     // perform recaptcha check
+    //     // const token = await recaptchaRef.current.executeAsync();
+    //     const recaptchaValue = recaptchaRef.current.getValue(); 
 
-        // perform fetch request to gateway api to invoke lambda function with form data
-        try {
+    //     // perform fetch request to gateway api to invoke lambda function with form data
+    //     try {
             
-            if (recaptchaValue !== '') {
-                console.log(`recaptcha: ${recaptchaValue}:${typeof recaptchaValue}`);
-                await fetch(process.env.GATSBY_AWS_GATEWAY, {
-                    method: 'POST',
-                    mode: 'cors',
-                    cache: 'no-cache',
-                    body: JSON.stringify(data),
-                    headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                    },
-                });
+    //         if (recaptchaValue !== '') {
+    //             console.log(`recaptcha: ${recaptchaValue}:${typeof recaptchaValue}`);
+    //             await fetch(process.env.GATSBY_AWS_GATEWAY, {
+    //                 method: 'POST',
+    //                 mode: 'cors',
+    //                 cache: 'no-cache',
+    //                 body: JSON.stringify(data),
+    //                 headers: {
+    //                 'Content-type': 'application/json; charset=UTF-8',
+    //                 },
+    //             });
 
-                // reset form data upon successful submit
-                reset();
-                setFormValues({
-                    name: '',
-                    email: '',
-                    phone: '',
-                    message: '',
-                });
-                setSubmitted(true);
-            } else {
-                setError('submit', 'submitError', `Please toggle recaptcha`);
-                setSubmitted(false);
-            }
+    //             // reset form data upon successful submit
+    //             reset();
+    //             setFormValues({
+    //                 name: '',
+    //                 email: '',
+    //                 phone: '',
+    //                 message: '',
+    //             });
+    //             setSubmitted(true);
+    //         } else {
+    //             setError('submit', 'submitError', `Please toggle recaptcha`);
+    //             setSubmitted(false);
+    //         }
             
             
-          } catch (error) {
-            // handle server errors
-            setError('submit', 'submitError', `Doh! ${error.message}`);
-            setSubmitted(false);
-          }
+    //       } catch (error) {
+    //         // handle server errors
+    //         setError('submit', 'submitError', `Doh! ${error.message}`);
+    //         setSubmitted(false);
+    //       }
         
-      };
+    //   };
 
     // update input on change
-    const handleChange = ev => {
-        ev.persist();
-        setFormValues(currentValues => ({
-            ...currentValues,
-            [ev.target.name]: ev.target.value,
-        }));
-    };
+    // const handleChange = ev => {
+    //     ev.persist();
+    //     setFormValues(currentValues => ({
+    //         ...currentValues,
+    //         [ev.target.name]: ev.target.value,
+    //     }));
+    // };
 
     // handle recaptcha change
     const onRecaptchaChange = (value) => {
@@ -145,9 +186,14 @@ const Form = () => {
     <ContactForm 
         name="contact-sdev" 
         method="POST"
+        action="/thanks/"
         data-netlify-recaptcha="true"
         data-netlify="true"
+        onSubmit={handleSubmit}
     >
+        <noscript>
+            <p>This form won't work with Javascript disabled</p>
+        </noscript>
         <input type="hidden" name="form-name" value="contact-sdev" />
         <div data-netlify-recaptcha="true"></div>
         <Row>
@@ -156,14 +202,14 @@ const Form = () => {
                 type="text"  
                 name="name" 
                 placeholder="Name"
-                disabled={isSubmitting}
-                value={formValues.name} 
+                // disabled={isSubmitting}
+                // value={formValues.name} 
                 onChange={handleChange} 
-                ref={register({
-                    required: 'Name is required',
-                })} 
+                // ref={register({
+                //     required: 'Name is required',
+                // })} 
             />
-            {errors.name && errors.name.message && <ErrorText>{errors.name.message}</ErrorText>}
+            {/* {errors.name && errors.name.message && <ErrorText>{errors.name.message}</ErrorText>} */}
         </Row>
         <DoubleRow>
             <Row>
@@ -172,15 +218,15 @@ const Form = () => {
                     type="text" 
                     name="email" 
                     placeholder="jon.email@gmail.com"
-                    disabled={isSubmitting} 
-                    value={formValues.email} 
+                    // disabled={isSubmitting} 
+                    // value={formValues.email} 
                     onChange={handleChange} 
-                    ref={register({
-                        required: 'Email is required',
-                        pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-                    })}  
+                    // ref={register({
+                    //     required: 'Email is required',
+                    //     pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+                    // })}  
                 />
-                {errors.email && errors.email.message && <ErrorText>{errors.email.message}</ErrorText>}
+                {/* {errors.email && errors.email.message && <ErrorText>{errors.email.message}</ErrorText>} */}
             </Row>
             <Row>
                 <Label htmlFor='phone'>Phone</Label>
@@ -189,12 +235,12 @@ const Form = () => {
                     name='phone'
                     placeholder='(555) - 555 - 5555'
                     pattern='[0-9]{3}[0-9]{3}[0-9]{4}'
-                    disabled={isSubmitting}
-                    value={formValues.phone}
+                    // disabled={isSubmitting}
+                    // value={formValues.phone}
                     onChange={handleChange}
-                    ref={register({
-                        pattern: /[0-9]{3}[0-9]{3}[0-9]{4}/
-                    })}
+                    // ref={register({
+                    //     pattern: /[0-9]{3}[0-9]{3}[0-9]{4}/
+                    // })}
                 />
             </Row>
         </DoubleRow>
@@ -204,18 +250,21 @@ const Form = () => {
                 type="text" 
                 name="message" 
                 placeholder="Tell me about your project"
-                disabled={isSubmitting} 
+                // disabled={isSubmitting}
                 rows="10" 
-                value={formValues.message} 
+                // value={formValues.message} 
                 onChange={handleChange} 
-                ref={register({
-                    required: 'Message is required',
-                })}
+                // ref={register({
+                //     required: 'Message is required',
+                // })}
             />
-            {errors.message && errors.message.message && <ErrorText>{errors.message.message}</ErrorText>}
+            {/* {errors.message && errors.message.message && <ErrorText>{errors.message.message}</ErrorText>} */}
+        </Row>
+        <Row>
+            <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
         </Row>
         <Button type="submit">
-            {isSubmitting ? 'Processing...' : 'Send Message'}
+            Send 
         </Button>
         {/* <Row>
             <ReCAPTCHA
@@ -225,11 +274,11 @@ const Form = () => {
                 onChange={onRecaptchaChange}
             />
         </Row> */}
-        {errors.submit && errors.submit.message &&
+        {/* {errors.submit && errors.submit.message &&
             <Row>
                 <ErrorText>{errors.submit.message}</ErrorText>
             </Row>
-        }
+        } */}
     </ContactForm>;
  
     return (
