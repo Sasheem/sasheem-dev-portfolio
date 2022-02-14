@@ -1,5 +1,5 @@
-import React, { useState, useRef, createRef } from 'react';
-import { navigate } from 'gatsby';
+import React, { useState, useRef } from 'react';
+import { navigate } from 'gatsby-link';
 import styled from 'styled-components';
 import Recaptcha from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
@@ -57,16 +57,6 @@ const ErrorText = styled.p`
     color: red;
 `;
 
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
-if (typeof RECAPTCHA_KEY === 'undefined') {
-  throw new Error(`
-  Env var GATSBY_APP_SITE_RECAPTCHA_KEY is undefined! 
-  You probably forget to set it in your Netlify build environment variables. 
-  Make sure to get a Recaptcha key at https://www.netlify.com/docs/form-handling/#custom-recaptcha-2-with-your-own-settings
-  Note this demo is specifically for Recaptcha v2
-  `)
-}
-
 function encode(data) {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -76,27 +66,25 @@ function encode(data) {
 
 const Form = () => {
     const [state, setState] = useState({});
-    const recaptchaRef = createRef();
+
     const handleChange = (e) => {
         setState({ ...state, [e.target.name]: e.target.value })
       }
     
-    const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    const recaptchaValue = recaptchaRef.current.getValue()
-    fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-        'form-name': form.getAttribute('name'),
-        'g-recaptcha-response': recaptchaValue,
-        ...state,
-        }),
-    })
-        .then(() => navigate(form.getAttribute('action')))
-        .catch((error) => alert(error))
-    }
+      const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({
+            'form-name': form.getAttribute('name'),
+            ...state,
+          }),
+        })
+          .then(() => navigate(form.getAttribute('action')))
+          .catch((error) => alert(error))
+      }
 
     const [submitted, setSubmitted] = useState(false);
     const [formValues, setFormValues] = useState({
@@ -187,15 +175,17 @@ const Form = () => {
         name="contact-sdev" 
         method="POST"
         action="/thanks/"
-        data-netlify-recaptcha="true"
+        data-netlify-honeypot="bot-field"
         data-netlify="true"
         onSubmit={handleSubmit}
     >
-        <noscript>
-            <p>This form won't work with Javascript disabled</p>
-        </noscript>
+        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="contact-sdev" />
-        <div data-netlify-recaptcha="true"></div>
+        <p hidden>
+          <label>
+            Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
         <Row>
             <Label htmlFor='name'>Name</Label>
             <Input 
@@ -260,9 +250,9 @@ const Form = () => {
             />
             {/* {errors.message && errors.message.message && <ErrorText>{errors.message.message}</ErrorText>} */}
         </Row>
-        <Row>
+        {/* <Row>
             <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
-        </Row>
+        </Row> */}
         <Button type="submit">
             Send 
         </Button>
