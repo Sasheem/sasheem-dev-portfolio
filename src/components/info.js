@@ -65,15 +65,21 @@ const Info = () => (
         <Header>
             <h3>Contact Info</h3>
         </Header>
-        <Row>
-            <Filler />
-            <Icon>
-                <LocationIcon />
-            </Icon>
-            <Content>
-                <Text>{data.location}</Text>
-            </Content>
-        </Row>
+        <a 
+            href='https://www.google.com/maps/place/Florida+State+University/@30.4418778,-84.3006776,17z/data=!3m1!4b1!4m5!3m4!1s0x88ecf57078f21dd3:0x9c1b0fee7f5d86c8!8m2!3d30.4418778!4d-84.2984889'
+            target='_blank'
+            rel="noopener"
+        >
+            <Row>
+                <Filler />
+                <Icon>
+                    <LocationIcon />
+                </Icon>
+                <Content>
+                    <Text>{data.location}</Text>
+                </Content>
+            </Row>
+        </a>
         <a href='mailto:sasheem@sasheemdev.com' target='_blank' rel="noopener noreferrer">
             <Row>
                 <Filler />
