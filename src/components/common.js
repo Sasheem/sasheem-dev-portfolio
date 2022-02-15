@@ -20,3 +20,19 @@ export const Button = styled.button`
         cursor: pointer;
     }
 `;
+
+export const Content = styled.div`
+    margin-top: 144px;
+    margin-bottom: 144px;
+    color: #44566C;     // dark blue grey
+    display: flex;
+    flex-direction: column;
+    max-width: 70vw;
+
+    // screen larger than 768px
+    @media only screen and (min-width: 768px) {
+        max-width: 30vw;
+        margin-top: 256px;
+        margin-bottom: 336px;
+    }
+`;

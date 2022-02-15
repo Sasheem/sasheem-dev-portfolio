@@ -2,24 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 // local components
+import { Content } from './common';
 import Social from './social';
 
 // styles
-const Content = styled.div`
-	margin-top: 256px;
-	margin-bottom: 144px;
-	color: #44566C;     // dark blue grey
-	display: flex;
-	flex-direction: column;
-	max-width: 70vw;
-
-    // screen larger than 768px
-    @media only screen and (min-width: 768px) {
-        max-width: 30vw;
-        margin-top: 256px;
-        margin-bottom: 336px;
-    }
-`;
 const Heading = styled.h1`
 	max-width: 540px;
 	margin-bottom: 0.25em;
