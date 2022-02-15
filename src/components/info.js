@@ -68,7 +68,7 @@ const Info = () => (
         <a 
             href='https://www.google.com/maps/place/Florida+State+University/@30.4418778,-84.3006776,17z/data=!3m1!4b1!4m5!3m4!1s0x88ecf57078f21dd3:0x9c1b0fee7f5d86c8!8m2!3d30.4418778!4d-84.2984889'
             target='_blank'
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             <Row>
                 <Filler />
