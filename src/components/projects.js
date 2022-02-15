@@ -40,16 +40,14 @@ const Ul = styled.ul`
   margin-top: 64px;
   margin-bottom: 288px;
   padding-left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2em;
   width: 100%;
 
   // screen larger than 768px
   @media only screen and (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
+      grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 const Li = styled.li`
