@@ -39,7 +39,7 @@ const About = () => (
         </LeftContent>
         <RightContent>
             <Text>
-                I’m a Software Developer specializing in front end development of websites and web applications. I have experience
+                Software Developer specializing in front end development of websites and web applications. I have experience
                 with HTML5, CSS3, Javascript, React, and WordPress. I also offer web consulting in regards to website 
                 design, development, and hosting.
             </Text>
