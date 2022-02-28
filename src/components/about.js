@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // local components
 import Heading2 from './heading2'
+import { AboutLink } from './common';
 
 const View = styled.div`
     display: flex;
@@ -30,7 +31,6 @@ const LeftContent = styled(RightContent)`
 const Text = styled.p`
     line-height: 1.5em;
 `;
-const AboutLink = styled.a``;
 
 const About = () => (
     <View>
@@ -39,9 +39,9 @@ const About = () => (
         </LeftContent>
         <RightContent>
             <Text>
-                Software Developer specializing in front end development of websites and web applications. I have experience
-                with HTML5, CSS3, Javascript, React, and WordPress. I also offer web consulting in regards to website 
-                design, development, and hosting.
+                Software Developer specializing in the development of websites and mobile apps. I have experience
+                with HTML, CSS, Javascript, React, and WordPress. I also have experience with mobile app development
+                using React Native and <AboutLink href='https://expo.dev/' target='_blank' rel="noreferrer">Expo</AboutLink>.
             </Text>
             <Text>
                 I graduated from Florida State University with a Bachelors of Science in Computational 
