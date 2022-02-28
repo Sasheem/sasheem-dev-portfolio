@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const AboutLink = styled.a``;
+
 export const Text = styled.p`
     font-size: 1em;
 `;
