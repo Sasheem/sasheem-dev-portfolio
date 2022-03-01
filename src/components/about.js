@@ -33,9 +33,9 @@ const Text = styled.p`
 `;
 
 const About = () => (
-    <View>
+    <View id='about'>
         <LeftContent>
-            <Heading2 id='about-section' title='About Me' />
+            <Heading2 title='About Me' />
         </LeftContent>
         <RightContent>
             <Text>

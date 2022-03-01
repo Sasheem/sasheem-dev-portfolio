@@ -158,10 +158,10 @@ const Projects = () => {
 
 
     return (
-        <Container>
+        <Container id='projects'>
           <Top>
             <HeadingContainer>
-              <Heading2 id="projects-section" title='Latest Work' />
+              <Heading2 title='Latest Work' />
             </HeadingContainer>
             <Filler />
           </Top>
