@@ -81,10 +81,13 @@ const SideNav = ({ open, setOpen }) => {
 				<HomeText onClick={() => handleHomeClick()}>Home</HomeText>
 			</li>
 			<li>
-				<NavText to='/#projects-section' onAnchorLinkClick={() => handleNavClose()}>Portfolio</NavText>
+				<NavText to='/#about' onAnchorLinkClick={() => handleNavClose()}>About</NavText>
 			</li>
 			<li>
-				<NavText to='/#contact-form' onAnchorLinkClick={() => handleNavClose()}>Contact</NavText>
+				<NavText to='/#projects' onAnchorLinkClick={() => handleNavClose()}>Portfolio</NavText>
+			</li>
+			<li>
+				<NavText to='/#contact' onAnchorLinkClick={() => handleNavClose()}>Contact</NavText>
 			</li>
 		</Ul>
 	);
