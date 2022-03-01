@@ -35,7 +35,7 @@ const Item = styled.li`
         }
     }
     
-    &:nth-child(6) {
+    &:nth-child(4) {
         span {
             border-right: none;
             
@@ -58,17 +58,11 @@ const Hero = () => (
         </Heading>
         <HeadingDetail>I am a full stack web developer</HeadingDetail>
         <Skills>
-            <Item><Span>HTML</Span></Item>
-            <Item><Span>CSS</Span></Item>
-            <Item><Span>JavaScript</Span></Item>
             <Item><Span>React</Span></Item>
             <Item><Span>React Native</Span></Item>
             <Item><Span>WordPress</Span></Item>
+            <Item><Span>NodeJS</Span></Item>
         </Skills>
-        {/* <Text>
-            HTML5 - CSS3 - Javascript - WordPress <br />
-            React - React Native 
-        </Text> */}
         <Social forContact={false} />
     </Content>
 );
