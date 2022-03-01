@@ -35,7 +35,7 @@ const HContainer = styled.div`
 
 // markup
 const Contact = () => (
-    <Container>
+    <Container id='contact'>
         <Header>
             <HContainer>
                 <Heading2 title='Contact' />
