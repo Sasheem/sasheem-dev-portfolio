@@ -39,16 +39,14 @@ const About = () => (
         </LeftContent>
         <RightContent>
             <Text>
-                Software Developer specializing in the development of websites and mobile apps. I have experience
+                Web App Developer specializing in the development of websites and mobile apps. I have experience
                 with HTML, CSS, Javascript, React, and WordPress. I also have experience with mobile app development
                 using React Native and <AboutLink href='https://expo.dev/' target='_blank' rel="noreferrer">Expo</AboutLink>.
             </Text>
             <Text>
                 I graduated from Florida State University with a Bachelors of Science in Computational 
                 Biology. I currently work for <AboutLink href='https://coss.fsu.edu/' target='_blank' rel="noreferrer">FSU COSSPP IT</AboutLink> {' '} 
-                as a Full-Stack Web Developer and maintain the website for a nonprofit, {' '}
-                <AboutLink href="https://www.unhousedhumanity.org/" target='_blank' rel="noreferrer">Unhoused Humanity</AboutLink>, 
-                that works to house individuals and families experiencing homelessness. 
+                as a WordPress Web Developer and also do some freelance web work in my off time. 
             </Text>
             <Text>
                 When I am not working on web development, I continue to update my IT 
